@@ -68,7 +68,7 @@ body {
 
 .makeCard {
   opacity: .85;
-    font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 h2 {
@@ -97,7 +97,7 @@ ul li {
 ul :hover {
   color: red;
 }
-/*Ian's junk */
+
 .eachCard {
   display: flex;
   flex-direction: row;
@@ -131,6 +131,7 @@ ul :hover {
   justify-content: space-around;
   height: 100%;
   width: 100%;
+}
 
 ol li {
   list-style-position: inside;
@@ -143,10 +144,9 @@ ol li {
   width: 550px;
 }
 
-.makeCard, .displaySingleCard, .displayCardList, .mathematics, .languages, .computerScience, #categoryHeader {
+/*.makeCard, .displaySingleCard, .displayCardList, .mathematics, .languages, .computerScience, #categoryHeader {
   display: none;
-}
-
+}*/
 
 .about {
   font-family: 'Lato', sans-serif;
@@ -169,7 +169,8 @@ ol li {
 }
 
 .flip-container p {
-  margin-top: 150px;;
+  margin-top: 100px;;
+  font-size: 14pt;
 }
 
 /* flip the pane when hovered */
@@ -179,8 +180,8 @@ ol li {
 }
 
 .flip-container, .front, .back {
-  width: 500px;
-  height: 300px;
+  width: 400px;
+  height: 250px;
   background-color: black;
   color: white;
 }
@@ -188,8 +189,8 @@ ol li {
 /* flip speed goes here */
 
 .flipper {
-  width: 500px;
-  height: 300px;
+  width: 400px;
+  height: 250px;
   transition: 0.6s;
   transform-style: preserve-3d;
   position: relative;
@@ -226,7 +227,30 @@ ol li {
   font-family: 'Lato', sans-serif;
 }
 
-.rubyDeck, .javascriptDeck {
+.active {
+  color: red;
+}
 
+.rubyDeck, .javascriptDeck {
   display: none;
+}
+
+#homeTab {
+  margin-left: 15%;
+}
+
+.glyphicon-chevron-left {
+  float: left;
+  position: relative;
+  top: 125px;
+  margin-left: 15%;
+  font-size: 2em;
+}
+
+.glyphicon-chevron-right {
+  float: right;
+  position: relative;
+  top: 125px;
+  margin-right: 15%;
+  font-size: 2em;
 }

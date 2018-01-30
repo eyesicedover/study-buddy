@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/lab.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
-    <title>Study Buddy</title>
-  </head>
+<head>
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery-3.3.1.js"></script>
+  <script src="js/scripts.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <title>Study Buddy</title>
+</head>
 
 <body>
+  <div class="topnav">
+    <a class="active" href="index.html" id="homeTab">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="" id="light">Light Mode</a>
+    <a href="" id="dark">Dark Mode</a>
+  </div>
+  <div class="row">
+    <div class="jumbotron">
+      <h1>Welcome To Study Buddy!</h1>
+    </div>
+  </div>
   <div class="container">
-    <div class="topnav">
-      <a class="active" href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <input type="text" placeholder="Search..">
-    </div>
-    <div class="row">
-      <div class="jumbotron">
-        <h1>Study Buddy</h1>
-      </div>
-    </div>
-    <h2>Let's Get Started!</h2>
     <div class="well">
+      <h2>Let's Get Started!</h2>
       <h2>Pick a subject you want to study:</h2>
       <div class="subjectType">
         <button type="button" name="computerScience" class="subject-btn btn btn-danger" id="computerScienceButton" value="computerScience">Computer Science</button>
@@ -33,7 +35,7 @@
       </div>
       <br>
       <h2 id="categoryHeader">Pick a category:</h2>
-      <div class="computerScience">
+      <div class="subject computerScience">
         <ul style="list-style: none">
           <li id="ruby">Ruby</li>
           <li id="javascript">JavaScript</li>
@@ -41,7 +43,7 @@
           <li id="dotNet">Dot Net</li>
         </ul>
       </div>
-      <div class="languages">
+      <div class="subject languages">
         <ul style="list-style: none">
           <li id="spanish">Spanish</li>
           <li id="french">French</li>
@@ -49,15 +51,17 @@
           <li id="indonesian">Indonesian</li>
         </ul>
       </div>
-      <div class="mathematics">
+      <div class="subject mathematics">
         <ul style="list-style: none">
           <li id="calculus">Calculus</li>
           <li id="algebra">Algebra</li>
           <li id="geometry">Geometry</li>
           <li id="proofs">Proofs</li>
         </ul>
-        <button type="submit" class="btn btn-primary" id="chooseMakeCard">Add a Card to this Category</button>
-        <button type="submit" class="btn btn-primary" id="chooseViewCards">View Cards in this Category</button>
+      </div>
+      <div id="makeOrViewCard">
+        <button type="button" class="btn btn-primary" id="chooseMakeCard">Add a Card to this Category</button>
+        <button type="button" class="btn btn-primary" id="chooseViewCards">View Cards in this Category</button>
       </div>
     </div>
     <div class="well makeCard">
@@ -73,9 +77,11 @@
           <input id="definition" class="form-control" type="text">
         </div>
         <button type="submit" class="btn btn-primary" id="makeCardButton">Add Card</button>
-        <form>
+      </form>
     </div>
     <div class="well displaySingleCard">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="glyphicon glyphicon-chevron-right"></span>
       <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
         <div class="flipper">
           <div class="front">
@@ -86,24 +92,24 @@
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="displayCard">
-
-      </div>
-<!-- Ian's dungeon labratory begins here -->
-          <div id="cardDisplay">
-          </div>
+    <div class="displayCard">
 
     </div>
+    <!-- Ian's dungeon labratory begins here -->
+    <div id="cardDisplay">
+    </div>
+
     <div class="well displayCardList">
     </div>
 
     <div class="rubyDeck">
-      Hello
+      <p>Hello</p>
 
     </div>
     <div class="javascriptDeck">
-      javascript
+      <p>javascript</p>
     </div>
   </div>
 </body>
