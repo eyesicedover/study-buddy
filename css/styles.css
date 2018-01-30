@@ -1,5 +1,4 @@
 @media screen and ();
-
 .form-group {
   padding: 10px;
 }
@@ -7,45 +6,49 @@
 .jumbotron {
   text-align: center;
   margin-top: 15px;
-  opacity: .60;
+  opacity: .70;
 }
 
 .topnav {
-    overflow: hidden;
-    background-color: #e9e9e9;
+  overflow: hidden;
+  background-color: #e9e9e9;
 }
 
 /* Style the links inside the navigation bar */
+
 .topnav a {
-    float: left;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
 /* Change the color of links on hover */
+
 .topnav a:hover {
-    background-color: #ddd;
-    color: black;
+  background-color: #ddd;
+  color: black;
 }
 
 /* Style the "active" element to highlight the current page */
+
 .topnav a.active {
-    background-color: #2196F3;
-    color: white;
+  background-color: #2196F3;
+  color: white;
 }
 
 /* Style the search box inside the navigation bar */
+
 .topnav input[type=text] {
-    float: right;
-    padding: 6px;
-    border: none;
-    margin-top: 8px;
-    margin-right: 16px;
-    font-size: 17px;
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
 }
 
 body {
@@ -60,7 +63,6 @@ body {
 .well {
   opacity: .70;
   text-align: center;
-
 }
 
 .makeCard {
@@ -74,20 +76,15 @@ h2 {
 #computerScienceButton, #mathematicsButton, #languageButton {
   font-size: 40px;
   margin-right: 40px;
-
 }
 
-legend {
+h2 {
   text-align: center;
   color: black;
   font-size: 1.75em;
 }
 
-.mathematics, .languages, .computerScience {
-  /*display: none;*/
-}
-
-li {
+ul li {
   font-size: 30px;
   display: inline-block;
   margin: 20px;
@@ -96,4 +93,24 @@ li {
 
 ul :hover {
   color: red;
+}
+
+ol li {
+  list-style-position: inside;
+}
+
+.panel {
+  margin-left: auto;
+  margin-right: auto;
+  height: 300px;
+  width: 550px;
+}
+
+.makeCard, .displaySingleCard, .displayCardList, .mathematics, .languages, .computerScience, #categoryHeader {
+  display: none;
+}
+
+.about {
+  font-family: 'Lato', sans-serif;
+  font-size: 14pt;
 }
