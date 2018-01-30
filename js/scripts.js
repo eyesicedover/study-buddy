@@ -1,6 +1,7 @@
 
 var currentSelections = new CurrentSelections;
 
+
 function Subject(name) {
   this.name = name;
   this.categories = [];
@@ -20,6 +21,19 @@ function Card(subject, category, term, definition) {
 function CurrentSelections() {
   this.subject = "";
   this.category = "";
+}
+
+function makeCard() {
+  var subject = currentSelections.getSubject();
+  var category = currentSelections.getCategory();
+  var term = $("input#term").val();
+  var definition = $("input#definition").val();
+
+  var newCard = new Card(subject, category, term, definition);
+  // cardsArray.push(newCard);
+  // console.log(cardsArray);
+
+  return newCard;
 }
 
 Subject.prototype.addCategory = function(category) {
@@ -167,6 +181,7 @@ CurrentSelections.prototype.getCategory = function(category) {
     $(".subject-btn").click(function() {
       var subject = $(this).val();
       currentSelections.setSubject(subject);
+      $(".subject").hide();
       $("." + subject).show();
       console.log(subject);
       console.log(currentSelections);
@@ -176,22 +191,39 @@ CurrentSelections.prototype.getCategory = function(category) {
     $("li").click(function(){
       var category = $(this).text().toLowerCase().replace(" ", "");
       currentSelections.setCategory(category);
+      var subject = currentSelections.getSubject();
+      $(".subject").hide();
+      $("." + subject).show();
       $("." + category + "Deck").show();
+      $("#makeCardForm").show();
+      $("#chooseViewCards").show();
+      $("#makeOrViewCard").show();
       console.log(category);
       console.log(currentSelections);
+    });
+
+    $("#chooseMakeCard").click(function(){
+      $(".makeCard").show();
+    });
+
+    $("#chooseViewCards").click(function(){
+      $("").show();
     });
 
     $("form#makeCardForm").submit(function(event) {
       event.preventDefault();
 
-      var subject = currentSelections.getSubject();
-      var category = currentSelections.getCategory();
-      var term = $("input#term").val();
-      var definition = $("input#definition").val();
-
-      newCard = new Card(subject, category, term, definition);
+      var newCard = makeCard();
       cardsArray.push(newCard);
-      console.log(cardsArray);
+
+      // var subject = currentSelections.getSubject();
+      // var category = currentSelections.getCategory();
+      // var term = $("input#term").val();
+      // var definition = $("input#definition").val();
+      //
+      // newCard = new Card(subject, category, term, definition);
+      // cardsArray.push(newCard);
+      // console.log(cardsArray);
 
     });
 

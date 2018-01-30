@@ -142,7 +142,7 @@ ol li {
   width: 550px;
 }
 
-.makeCard, .displaySingleCard, .displayCardList, .mathematics, .languages, .computerScience, #categoryHeader {
+.makeCard, .displaySingleCard, .displayCardList, .mathematics, .languages, .computerScience, #categoryHeader, #makeOrViewCard {
   display: none;
 }
 

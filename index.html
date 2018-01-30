@@ -45,7 +45,7 @@
       </div>
       <br>
       <h2 id="categoryHeader">Pick a category:</h2>
-      <div class="computerScience">
+      <div class="subject computerScience">
         <ul style="list-style: none">
           <li id="ruby">Ruby</li>
           <li id="javascript">JavaScript</li>
@@ -53,7 +53,7 @@
           <li id="dotNet">Dot Net</li>
         </ul>
       </div>
-      <div class="languages">
+      <div class="subject languages">
         <ul style="list-style: none">
           <li id="spanish">Spanish</li>
           <li id="french">French</li>
@@ -61,15 +61,17 @@
           <li id="indonesian">Indonesian</li>
         </ul>
       </div>
-      <div class="mathematics">
+      <div class="subject mathematics">
         <ul style="list-style: none">
           <li id="calculus">Calculus</li>
           <li id="algebra">Algebra</li>
           <li id="geometry">Geometry</li>
           <li id="proofs">Proofs</li>
         </ul>
-        <button type="submit" class="btn btn-primary" id="chooseMakeCard">Add a Card to this Category</button>
-        <button type="submit" class="btn btn-primary" id="chooseViewCards">View Cards in this Category</button>
+      </div>
+      <div id="makeOrViewCard">
+        <button type="button" class="btn btn-primary" id="chooseMakeCard">Add a Card to this Category</button>
+        <button type="button" class="btn btn-primary" id="chooseViewCards">View Cards in this Category</button>
       </div>
     </div>
     <div class="well makeCard">
@@ -85,7 +87,7 @@
           <input id="definition" class="form-control" type="text">
         </div>
         <button type="submit" class="btn btn-primary" id="makeCardButton">Add Card</button>
-        <form>
+      </form>
     </div>
     <div class="well displaySingleCard">
       <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
