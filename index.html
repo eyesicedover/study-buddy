@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html>
 
+  <head>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/scripts.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <title>Study Buddy</title>
+  </head>
+
+
+
 <head>
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
   <link href="css/styles.css" rel="stylesheet" type="text/css">
@@ -26,25 +37,25 @@
     </div>
     <h2>Let's Get Started!</h2>
     <div class="well">
-      <h2>Pick a subject you want to study</h2>
+      <h2>Pick a subject you want to study:</h2>
       <div class="subjectType">
-        <button type="button" name="computerScience" class="btn btn-danger active" id="computerScienceButton" value="computerScience">Computer Science</button>
-        <button type="button" name="mathematics" class="btn btn-warning active" id="mathematicsButton" value="mathematics">Mathematics</button>
-        <button type="button" name="language" class="btn btn-info active" id="languageButton" value="languages">Languages</button>
+        <button type="button" name="computerScience" class="subject-btn btn btn-danger" id="computerScienceButton" value="computerScience">Computer Science</button>
+        <button type="button" name="mathematics" class="subject-btn btn btn-warning" id="mathematicsButton" value="mathematics">Mathematics</button>
+        <button type="button" name="language" class="subject-btn btn btn-info" id="languageButton" value="languages">Languages</button>
       </div>
       <br>
-      <h2 id="categoryHeader">Pick a category</h2>
+      <h2 id="categoryHeader">Pick a category:</h2>
       <div class="computerScience">
         <ul style="list-style: none">
           <li id="ruby">Ruby</li>
           <li id="javascript">JavaScript</li>
-          <li id="cSharp">C#</li>
-          <li id="dotNet">.Net</li>
+          <li id="cSharp">C Sharp</li>
+          <li id="dotNet">Dot Net</li>
         </ul>
       </div>
       <div class="languages">
         <ul style="list-style: none">
-          <li id="spanish" value="spanish">Spanish</li>
+          <li id="spanish">Spanish</li>
           <li id="french">French</li>
           <li id="russian">Russian</li>
           <li id="indonesian">Indonesian</li>
@@ -87,8 +98,24 @@
           </div>
         </div>
       </div>
+
+      <div class="displayCard">
+
+      </div>
+<!-- Ian's dungeon labratory begins here -->
+          <div id="cardDisplay">
+          </div>
+
     </div>
     <div class="well displayCardList">
+    </div>
+
+    <div class="rubyDeck">
+      Hello
+
+    </div>
+    <div class="javascriptDeck">
+      javascript
     </div>
   </div>
 </body>
