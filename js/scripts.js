@@ -1,3 +1,6 @@
+
+var currentSelections = new CurrentSelections;
+
 function Subject(name) {
   this.name = name;
   this.categories = [];
@@ -14,11 +17,32 @@ function Card(subject, category, term, definition) {
   this.definition = definition;
 }
 
+function CurrentSelections() {
+  this.subject = "";
+  this.category = "";
+}
+
 Subject.prototype.addCategory = function(category) {
   if (this.categories.includes(category) === false) {
     this.categories.push(category);
   }
   return Subject;
+}
+
+CurrentSelections.prototype.setSubject = function(subject) {
+  currentSelections.subject = subject;
+}
+
+CurrentSelections.prototype.setCategory = function(category) {
+  currentSelections.category = category;
+}
+
+CurrentSelections.prototype.getSubject = function(subject) {
+  return currentSelections.subject;
+}
+
+CurrentSelections.prototype.getCategory = function(category) {
+  return currentSelections.category;
 }
 
 // Card.prototype.editCard =
@@ -90,7 +114,9 @@ Subject.prototype.addCategory = function(category) {
 
 
   $(document).ready(function() {
+
     var cardsArray = [];
+    // var category = "";
     // var searchArray = [];
 
     // cards
@@ -120,102 +146,46 @@ Subject.prototype.addCategory = function(category) {
     newCard = new Card("Languages", "Indonesian", "Where is the library?", "Dimana perpustakaannya?");
 
     // subjects
-    $("#computerScienceButton").click(function() {
-      var subject = $("#computerScienceButton").val();
-      $(".computerScience").show();
-      console.log(subject);
-    });
+    // $("#computerScienceButton").click(function() {
+    //   var subject = $("#computerScienceButton").val();
+    //   $(".computerScience").show();
+    //   console.log(subject);
+    // });
+    //
+    // $("#mathematicsButton").click(function() {
+    //   var subject = $("#mathematicsButton").val();
+    //   $(".mathematics").show();
+    //   console.log(subject);
+    // });
+    //
+    // $("#languageButton").click(function() {
+    //   var subject = $("#languageButton").val();
+    //   $(".languages").show();
+    //   console.log(subject);
+    // });
 
-    $("#mathematicsButton").click(function() {
-      var subject = $("#mathematicsButton").val();
-      $(".mathematics").show();
+    $(".subject-btn").click(function() {
+      var subject = $(this).val();
+      currentSelections.setSubject(subject);
+      $("." + subject).show();
       console.log(subject);
-    });
-
-    $("#languageButton").click(function() {
-      var subject = $("#languageButton").val();
-      $(".languages").show();
-      console.log(subject);
+      console.log(currentSelections);
     });
 
     // categories
-    $("#ruby").click(function(){
-      var category = $(this).text().toLowerCase();
-      $(".rubyDeck").show();
+    $("li").click(function(){
+      var category = $(this).text().toLowerCase().replace(" ", "");
+      currentSelections.setCategory(category);
+      $("." + category + "Deck").show();
       console.log(category);
-    });
-
-    $("#javascript").click(function(){
-      var category = $(this).text().toLowerCase();
-      $(".javascriptDeck").show();
-      console.log(category);
-    });
-
-    $("#cSharp").click(function(){
-      var category = $(this).text().toLowerCase();
-      $(".cSharpDeck").show();
-      console.log(category);
-    });
-
-    $("#dotNet").click(function(){
-      var category = $(this).text().toLowerCase();
-      $(".dotNetDeck").show();
-      console.log(category);
-    });
-
-    $("#spanish").click(function(){
-      var category = $(this).text().toLowerCase();
-      $(".spanishDeck").show();
-      console.log(category);
-    });
-
-    $("#french").click(function(){
-      var category = $(this).text().toLowerCase();
-      $(".frenchDeck").show();
-      console.log(category);
-    });
-
-    $("#russian").click(function(){
-      var category = $(this).text().toLowerCase();
-      $(".russianDeck").show();
-      console.log(category);
-    });
-
-    $("#indonesian").click(function(){
-      var category = $(this).text().toLowerCase();
-      $(".indonesianDeck").show();
-      console.log(category);
-    });
-
-    $("#calculus").click(function(){
-      var category = $(this).text().toLowerCase();
-      $(".calculusDeck").show();
-      console.log(category);
-    });
-
-    $("#algebra").click(function(){
-      var category = $(this).text().toLowerCase();
-      $(".algebraDeck").show();
-      console.log(category);
-    });
-
-    $("#geometry").click(function(){
-      var category = $(this).text().toLowerCase();
-      $(".geometryDeck").show();
-      console.log(category);
-    });
-
-    $("#proofs").click(function(){
-      var category = $(this).text().toLowerCase();
-      $(".proofsDeck").show();
-      console.log(category);
+      console.log(currentSelections);
     });
 
     $("form#makeCardForm").submit(function(event) {
       event.preventDefault();
 
-      // var subject = $("").val();
-      // var category = $("").val();
+      var subject = currentSelections.getSubject();
+      var category = currentSelections.getCategory();
       var term = $("input#term").val();
       var definition = $("input#definition").val();
 

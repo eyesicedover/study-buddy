@@ -109,9 +109,10 @@ ol li {
   width: 550px;
 }
 
-/*.makeCard, .displaySingleCard, .displayCardList, .mathematics, .languages, .computerScience, #categoryHeader {
-  display: none;
-}*/
+.makeCard, .displaySingleCard, .displayCardList, .mathematics, .languages, .computerScience, #categoryHeader {
+  /*display: none;*/
+}
+
 
 .about {
   font-family: 'Lato', sans-serif;
@@ -189,4 +190,8 @@ ol li {
 
 .displaySingleCard {
   font-family: 'Lato', sans-serif;
+}
+
+.rubyDeck, .javascriptDeck {
+  display: none;
 }
