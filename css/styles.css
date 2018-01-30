@@ -1,5 +1,4 @@
 @media screen and ();
-
 .form-group {
   padding: 10px;
 }
@@ -7,45 +6,50 @@
 .jumbotron {
   text-align: center;
   margin-top: 15px;
-  opacity: .60;
+  opacity: .80;
 }
 
 .topnav {
-    overflow: hidden;
-    background-color: #e9e9e9;
+  overflow: hidden;
+  background-color: #e9e9e9;
+  border-radius: 5px;
 }
 
 /* Style the links inside the navigation bar */
+
 .topnav a {
-    float: left;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
 /* Change the color of links on hover */
+
 .topnav a:hover {
-    background-color: #ddd;
-    color: black;
+  background-color: #ddd;
+  color: black;
 }
 
 /* Style the "active" element to highlight the current page */
+
 .topnav a.active {
-    background-color: #2196F3;
-    color: white;
+  background-color: #2196F3;
+  color: white;
 }
 
 /* Style the search box inside the navigation bar */
+
 .topnav input[type=text] {
-    float: right;
-    padding: 6px;
-    border: none;
-    margin-top: 8px;
-    margin-right: 16px;
-    font-size: 17px;
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
 }
 
 body {
@@ -58,32 +62,32 @@ body {
 }
 
 .well {
-  opacity: .60;
+  opacity: .80;
   text-align: center;
+}
 
+.makeCard {
+  opacity: .85;
+    font-family: 'Lato', sans-serif;
 }
 
 h2 {
   text-align: center;
 }
 
-.btn {
+#computerScienceButton, #mathematicsButton, #languageButton {
   font-size: 40px;
   margin-right: 40px;
-
+  margin-top: 15px;
 }
 
-legend {
+h2 {
   text-align: center;
   color: black;
   font-size: 1.75em;
 }
 
-.mathematics, .languages, .computerScience {
-  /*display: none;*/
-}
-
-li {
+ul li {
   font-size: 30px;
   display: inline-block;
   margin: 20px;
@@ -93,6 +97,7 @@ li {
 ul :hover {
   color: red;
 }
+
 
 .eachCard{
   display: flex;
@@ -125,5 +130,102 @@ padding-left: 99%;
   justify-content: space-around;
   height: 100%;
   width: 100%;
+
+ol li {
+  list-style-position: inside;
+}
+
+.panel {
+  margin-left: auto;
+  margin-right: auto;
+  height: 300px;
+  width: 550px;
+}
+
+.makeCard, .displaySingleCard, .displayCardList, .mathematics, .languages, .computerScience, #categoryHeader {
+  display: none;
+}
+
+
+.about {
+  font-family: 'Lato', sans-serif;
+  font-size: 14pt;
+  opacity: .9;
+}
+
+.contact {
+  font-family: 'Lato', sans-serif;
+  font-size: 14pt;
+  opacity: .9;
+}
+
+/* entire container, keeps perspective */
+
+.flip-container {
+  perspective: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flip-container p {
+  margin-top: 150px;;
+}
+
+/* flip the pane when hovered */
+
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+  transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+  width: 500px;
+  height: 300px;
+  background-color: black;
+  color: white;
+}
+
+/* flip speed goes here */
+
+.flipper {
+  width: 500px;
+  height: 300px;
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+/* hide back of pane during swap */
+
+.front, .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+
+.front {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+
+.back {
+  transform: rotateY(180deg);
+}
+
+#chooseMakeCard, #chooseViewCards {
+  font-family: 'Lato', sans-serif;
+}
+
+.displaySingleCard {
+  font-family: 'Lato', sans-serif;
+}
+
+.rubyDeck, .javascriptDeck {
+
   display: none;
 }

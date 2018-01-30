@@ -1,70 +1,123 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.3.1.js"></script>
-    <!-- <script src="js/scripts.js"></script> -->
-    <script src="js/lab.js"></script>
+    <script src="js/scripts.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     <title>Study Buddy</title>
   </head>
 
-  <body>
-    <div class="container">
-      <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="#createFlash">Create Your Own Deck</a>
-        <input type="text" placeholder="Search..">
+
+
+<head>
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery-3.3.1.js"></script>
+  <script src="js/scripts.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <title>Study Buddy</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="topnav">
+      <a class="active" href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <input type="text" placeholder="Search..">
+    </div>
+    <div class="row">
+      <div class="jumbotron">
+        <h1>Study Buddy</h1>
       </div>
-      <div class="row">
-        <div class="jumbotron">
-          <h1>Study Buddy</h1>
+    </div>
+    <h2>Let's Get Started!</h2>
+    <div class="well">
+      <h2>Pick a subject you want to study:</h2>
+      <div class="subjectType">
+        <button type="button" name="computerScience" class="subject-btn btn btn-danger" id="computerScienceButton" value="computerScience">Computer Science</button>
+        <button type="button" name="mathematics" class="subject-btn btn btn-warning" id="mathematicsButton" value="mathematics">Mathematics</button>
+        <button type="button" name="language" class="subject-btn btn btn-info" id="languageButton" value="languages">Languages</button>
+      </div>
+      <br>
+      <h2 id="categoryHeader">Pick a category:</h2>
+      <div class="computerScience">
+        <ul style="list-style: none">
+          <li id="ruby">Ruby</li>
+          <li id="javascript">JavaScript</li>
+          <li id="cSharp">C Sharp</li>
+          <li id="dotNet">Dot Net</li>
+        </ul>
+      </div>
+      <div class="languages">
+        <ul style="list-style: none">
+          <li id="spanish">Spanish</li>
+          <li id="french">French</li>
+          <li id="russian">Russian</li>
+          <li id="indonesian">Indonesian</li>
+        </ul>
+      </div>
+      <div class="mathematics">
+        <ul style="list-style: none">
+          <li id="calculus">Calculus</li>
+          <li id="algebra">Algebra</li>
+          <li id="geometry">Geometry</li>
+          <li id="proofs">Proofs</li>
+        </ul>
+        <button type="submit" class="btn btn-primary" id="chooseMakeCard">Add a Card to this Category</button>
+        <button type="submit" class="btn btn-primary" id="chooseViewCards">View Cards in this Category</button>
+      </div>
+    </div>
+    <div class="well makeCard">
+      <h3>Make a card</h3>
+      <form id="makeCardForm">
+        <p>Current Subject: <span class="currentSubject"></span>, Current Category: <span class="currentCategory"></span></p>
+        <div class="form-group">
+          <label for="term">Enter the term:</label>
+          <input id="term" class="form-control" type="text">
+        </div>
+        <div class="form-group">
+          <label for="definition">Enter the term's definition:</label>
+          <input id="definition" class="form-control" type="text">
+        </div>
+        <button type="submit" class="btn btn-primary" id="makeCardButton">Add Card</button>
+        <form>
+    </div>
+    <div class="well displaySingleCard">
+      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+          <div class="front">
+            <p>FRONT</p>
+          </div>
+          <div class="back">
+            <p>BACK</p>
+          </div>
         </div>
       </div>
-        <h2>Let's Get Started!</h2>
-        <div class="well">
-          <legend>Pick a subject you want to study</legend>
-          <div class="subjectType">
-            <button type="button" name="computerScience" class="btn btn-danger" id="computerScienceButton">Computer Science</button>
-            <button type="button" name="mathematics" class="btn btn-warning" id="mathematicsButton">Mathematics</button>
-            <button type="button" name="language" class="btn btn-info" id="languageButton">Languages</button>
-          </div>
 
-
-          <div class="computerScience">
-            <ul style="list-style: none">
-              <li><span id="ruby">Ruby</span></li>
-              <li>JavaScript</li>
-              <li>C#</li>
-              <li>.Net</li>
-            </ul>
-          </div>
-          <div class="languages">
-            <ul style="list-style: none">
-              <li>Spanish</li>
-              <li>French</li>
-              <li>Russian</li>
-              <li>Indonesian</li>
-            </ul>
-          </div>
-          <div class="mathematics">
-            <ul style="list-style: none">
-              <li>Calculus</li>
-              <li>Algebra</li>
-              <li>Geometry</li>
-              <li>Proofs</li>
-            </ul>
-          </div>
-      </div>
       <div class="displayCard">
 
       </div>
 <!-- Ian's dungeon labratory begins here -->
           <div id="cardDisplay">
           </div>
+
     </div>
-  </body>
+    <div class="well displayCardList">
+    </div>
+
+    <div class="rubyDeck">
+      Hello
+
+    </div>
+    <div class="javascriptDeck">
+      javascript
+    </div>
+  </div>
+</body>
+
 </html>
