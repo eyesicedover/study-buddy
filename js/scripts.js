@@ -46,7 +46,7 @@ CurrentSelections.prototype.getCategory = function(category) {
 }
 
 // Card.prototype.editCard =
-//
+
 // function createNewCard()
 
   // function petTypeSort(petsArray, searchArray) {
