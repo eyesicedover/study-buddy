@@ -120,10 +120,11 @@ ul :hover {
 }
 
 #checkMark {
-  float: left;
+
 }
 
 .cardBack {
+  display: none;
   padding: 80px;
   padding-top: 0;
   text-align: center;
