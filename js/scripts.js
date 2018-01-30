@@ -93,6 +93,7 @@ Subject.prototype.addCategory = function(category) {
     var cardsArray = [];
     // var searchArray = [];
 
+    // cards
     var newCard = new Card("Computer Science", "JavaScript", "forLoop", "for (i = 0; i < array.length; i++) {console.log(i)}");
     cardsArray.push(newCard);
 
@@ -118,14 +119,105 @@ Subject.prototype.addCategory = function(category) {
 
     newCard = new Card("Languages", "Indonesian", "Where is the library?", "Dimana perpustakaannya?");
 
+    // subjects
+    $("#computerScienceButton").click(function() {
+      var subject = $("#computerScienceButton").val();
+      $(".computerScience").show();
+      console.log(subject);
+    });
 
-    $("form#").submit(function(event) {
+    $("#mathematicsButton").click(function() {
+      var subject = $("#mathematicsButton").val();
+      $(".mathematics").show();
+      console.log(subject);
+    });
+
+    $("#languageButton").click(function() {
+      var subject = $("#languageButton").val();
+      $(".languages").show();
+      console.log(subject);
+    });
+
+    // categories
+    $("#ruby").click(function(){
+      var category = $(this).text().toLowerCase();
+      $(".rubyDeck").show();
+      console.log(category);
+    });
+
+    $("#javascript").click(function(){
+      var category = $(this).text().toLowerCase();
+      $(".javascriptDeck").show();
+      console.log(category);
+    });
+
+    $("#cSharp").click(function(){
+      var category = $(this).text().toLowerCase();
+      $(".cSharpDeck").show();
+      console.log(category);
+    });
+
+    $("#dotNet").click(function(){
+      var category = $(this).text().toLowerCase();
+      $(".dotNetDeck").show();
+      console.log(category);
+    });
+
+    $("#spanish").click(function(){
+      var category = $(this).text().toLowerCase();
+      $(".spanishDeck").show();
+      console.log(category);
+    });
+
+    $("#french").click(function(){
+      var category = $(this).text().toLowerCase();
+      $(".frenchDeck").show();
+      console.log(category);
+    });
+
+    $("#russian").click(function(){
+      var category = $(this).text().toLowerCase();
+      $(".russianDeck").show();
+      console.log(category);
+    });
+
+    $("#indonesian").click(function(){
+      var category = $(this).text().toLowerCase();
+      $(".indonesianDeck").show();
+      console.log(category);
+    });
+
+    $("#calculus").click(function(){
+      var category = $(this).text().toLowerCase();
+      $(".calculusDeck").show();
+      console.log(category);
+    });
+
+    $("#algebra").click(function(){
+      var category = $(this).text().toLowerCase();
+      $(".algebraDeck").show();
+      console.log(category);
+    });
+
+    $("#geometry").click(function(){
+      var category = $(this).text().toLowerCase();
+      $(".geometryDeck").show();
+      console.log(category);
+    });
+
+    $("#proofs").click(function(){
+      var category = $(this).text().toLowerCase();
+      $(".proofsDeck").show();
+      console.log(category);
+    });
+
+    $("form#makeCardForm").submit(function(event) {
       event.preventDefault();
 
-      var subject = $("").val();
-      var category = $("").val();
-      var term = $("").val();
-      var definition = $("").val();
+      // var subject = $("").val();
+      // var category = $("").val();
+      var term = $("input#term").val();
+      var definition = $("input#definition").val();
 
       newCard = new Card(subject, category, term, definition);
       cardsArray.push(newCard);
