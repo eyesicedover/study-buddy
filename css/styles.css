@@ -107,7 +107,7 @@ ol li {
 }
 
 .makeCard, .displaySingleCard, .displayCardList, .mathematics, .languages, .computerScience, #categoryHeader {
-  display: none;
+  /*display: none;*/
 }
 
 .about {

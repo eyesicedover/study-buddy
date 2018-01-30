@@ -1,3 +1,6 @@
+
+var currentSelections = new CurrentSelections;
+
 function Subject(name) {
   this.name = name;
   this.categories = [];
@@ -14,11 +17,32 @@ function Card(subject, category, term, definition) {
   this.definition = definition;
 }
 
+function CurrentSelections() {
+  this.subject = "";
+  this.category = "";
+}
+
 Subject.prototype.addCategory = function(category) {
   if (this.categories.includes(category) === false) {
     this.categories.push(category);
   }
   return Subject;
+}
+
+CurrentSelections.prototype.setSubject = function(subject) {
+  currentSelections.subject = subject;
+}
+
+CurrentSelections.prototype.setCategory = function(category) {
+  currentSelections.category = category;
+}
+
+CurrentSelections.prototype.getSubject = function(subject) {
+  return currentSelections.subject;
+}
+
+CurrentSelections.prototype.getCategory = function(category) {
+  return currentSelections.category;
 }
 
 // Card.prototype.editCard =
@@ -90,6 +114,7 @@ Subject.prototype.addCategory = function(category) {
 
 
   $(document).ready(function() {
+
     var cardsArray = [];
     // var category = "";
     // var searchArray = [];
@@ -139,24 +164,28 @@ Subject.prototype.addCategory = function(category) {
     //   console.log(subject);
     // });
 
-    $("button").click(function() {
+    $(".subject-btn").click(function() {
       var subject = $(this).val();
+      currentSelections.setSubject(subject);
       $("." + subject).show();
       console.log(subject);
+      console.log(currentSelections);
     });
 
     // categories
     $("li").click(function(){
       var category = $(this).text().toLowerCase().replace(" ", "");
+      currentSelections.setCategory(category);
       $("." + category + "Deck").show();
       console.log(category);
+      console.log(currentSelections);
     });
 
     $("form#makeCardForm").submit(function(event) {
       event.preventDefault();
 
-      // var subject = $("").val();
-      // var category = $("").val();
+      var subject = currentSelections.getSubject();
+      var category = currentSelections.getCategory();
       var term = $("input#term").val();
       var definition = $("input#definition").val();
 
