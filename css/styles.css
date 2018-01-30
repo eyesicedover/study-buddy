@@ -1,5 +1,4 @@
 @media screen and ();
-
 .form-group {
   padding: 10px;
 }
@@ -11,41 +10,45 @@
 }
 
 .topnav {
-    overflow: hidden;
-    background-color: #e9e9e9;
+  overflow: hidden;
+  background-color: #e9e9e9;
 }
 
 /* Style the links inside the navigation bar */
+
 .topnav a {
-    float: left;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
 /* Change the color of links on hover */
+
 .topnav a:hover {
-    background-color: #ddd;
-    color: black;
+  background-color: #ddd;
+  color: black;
 }
 
 /* Style the "active" element to highlight the current page */
+
 .topnav a.active {
-    background-color: #2196F3;
-    color: white;
+  background-color: #2196F3;
+  color: white;
 }
 
 /* Style the search box inside the navigation bar */
+
 .topnav input[type=text] {
-    float: right;
-    padding: 6px;
-    border: none;
-    margin-top: 8px;
-    margin-right: 16px;
-    font-size: 17px;
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
 }
 
 body {
@@ -60,7 +63,6 @@ body {
 .well {
   opacity: .60;
   text-align: center;
-
 }
 
 h2 {
@@ -70,7 +72,6 @@ h2 {
 .btn {
   font-size: 40px;
   margin-right: 40px;
-
 }
 
 legend {
@@ -93,8 +94,8 @@ li {
 ul :hover {
   color: red;
 }
-
-.eachCard{
+/*Ian's junk */
+.eachCard {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -106,19 +107,20 @@ ul :hover {
   background-color: white;
 }
 
-.cardFront{
-
+.cardFront {
   font-size: 23pt;
 }
-.cardMarker{
-padding-bottom: 80px;
-padding-left: 99%;
 
+.cardMarker {
+  padding-bottom: 80px;
+  padding-left: 99%;
 }
-#checkMark{
+
+#checkMark {
   float: left;
 }
-.cardBack{
+
+.cardBack {
   padding: 80px;
   padding-top: 0;
   text-align: center;
