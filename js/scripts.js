@@ -191,10 +191,8 @@ CurrentSelections.prototype.getCategory = function(category) {
 
       newCard = new Card(subject, category, term, definition);
       cardsArray.push(newCard);
+      console.log(cardsArray);
 
-      $("button").click(function() {
-
-      })
     });
 
   });
