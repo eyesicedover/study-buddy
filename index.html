@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
   <link href="css/styles.css" rel="stylesheet" type="text/css">
   <script src="js/jquery-3.3.1.js"></script>
   <script src="js/scripts.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <title>Study Buddy</title>
 </head>
+
 <body>
   <div class="container">
     <div class="topnav">
@@ -71,12 +74,23 @@
           <input id="definition" class="form-control" type="text">
         </div>
         <button type="submit" class="btn btn-primary" id="makeCardButton">Add Card</button>
-      <form>
+        <form>
     </div>
     <div class="well displaySingleCard">
+      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+          <div class="front">
+            <p>FRONT</p>
+          </div>
+          <div class="back">
+            <p>BACK</p>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="well displayCardList">
     </div>
   </div>
 </body>
+
 </html>

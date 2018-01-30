@@ -21,9 +21,9 @@ Subject.prototype.addCategory = function(category) {
   return Subject;
 }
 
-Card.prototype.editCard =
+// Card.prototype.editCard =
 
-function createNewCard()
+// function createNewCard()
 
   // function petTypeSort(petsArray, searchArray) {
   //   var sortedArray = [];
