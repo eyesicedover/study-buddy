@@ -7,6 +7,7 @@
   text-align: center;
   margin-top: 15px;
   opacity: .80;
+  width: 100% !important;
 }
 
 .topnav {
@@ -130,6 +131,7 @@ padding-left: 99%;
   justify-content: space-around;
   height: 100%;
   width: 100%;
+}
 
 ol li {
   list-style-position: inside;
