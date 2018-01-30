@@ -13,12 +13,11 @@
 
 <body>
   <div class="topnav">
-    <a class="active" href="index.html">Home</a>
+    <a class="active" href="index.html" id="homeTab">Home</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
     <a href="" id="light">Light Mode</a>
     <a href="" id="dark">Dark Mode</a>
-    <input type="text" placeholder="Search..">
   </div>
   <div class="row">
     <div class="jumbotron">
@@ -81,6 +80,8 @@
       </form>
     </div>
     <div class="well displaySingleCard">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="glyphicon glyphicon-chevron-right"></span>
       <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
         <div class="flipper">
           <div class="front">
