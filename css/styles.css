@@ -58,16 +58,20 @@ body {
 }
 
 .well {
-  opacity: .60;
+  opacity: .70;
   text-align: center;
 
+}
+
+.makeCard {
+  opacity: .85;
 }
 
 h2 {
   text-align: center;
 }
 
-.btn {
+#computerScienceButton, #mathematicsButton, #languageButton {
   font-size: 40px;
   margin-right: 40px;
 
