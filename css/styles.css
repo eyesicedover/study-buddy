@@ -190,3 +190,7 @@ ol li {
 .displaySingleCard {
   font-family: 'Lato', sans-serif;
 }
+
+.active {
+  color: red;
+}
