@@ -107,10 +107,14 @@ ol li {
 }
 
 .makeCard, .displaySingleCard, .displayCardList, .mathematics, .languages, .computerScience, #categoryHeader {
-  display: none;
+  /*display: none;*/
 }
 
 .about {
   font-family: 'Lato', sans-serif;
   font-size: 14pt;
+}
+
+.rubyDeck, .javascriptDeck {
+  display: none;
 }
