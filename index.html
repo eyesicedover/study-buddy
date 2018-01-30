@@ -12,20 +12,22 @@
 </head>
 
 <body>
+  <div class="topnav">
+    <a class="active" href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="" id="light">Light Mode</a>
+    <a href="" id="dark">Dark Mode</a>
+    <input type="text" placeholder="Search..">
+  </div>
+  <div class="row">
+    <div class="jumbotron">
+      <h1>Welcome To Study Buddy!</h1>
+    </div>
+  </div>
   <div class="container">
-    <div class="topnav">
-      <a class="active" href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <input type="text" placeholder="Search..">
-    </div>
-    <div class="row">
-      <div class="jumbotron">
-        <h1>Study Buddy</h1>
-      </div>
-    </div>
-    <h2>Let's Get Started!</h2>
     <div class="well">
+      <h2>Let's Get Started!</h2>
       <h2>Pick a subject you want to study:</h2>
       <div class="subjectType">
         <button type="button" name="computerScience" class="subject-btn btn btn-danger" id="computerScienceButton" value="computerScience">Computer Science</button>
@@ -89,6 +91,7 @@
           </div>
         </div>
       </div>
+    </div>
 
       <div class="displayCard">
 
@@ -98,6 +101,10 @@
       </div>
 
     </div>
+    <!-- Ian's dungeon labratory begins here -->
+    <div id="cardDisplay">
+    </div>
+
     <div class="well displayCardList">
     </div>
 
