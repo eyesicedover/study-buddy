@@ -76,7 +76,6 @@ h2 {
 legend {
   text-align: center;
   color: black;
-  font-size: 1.75em;
 }
 
 .mathematics, .languages, .computerScience {
@@ -87,9 +86,4 @@ li {
   font-size: 30px;
   display: inline-block;
   margin: 20px;
-  cursor: pointer;
-}
-
-ul :hover {
-  color: red;
 }
