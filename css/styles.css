@@ -114,3 +114,7 @@ ol li {
   font-family: 'Lato', sans-serif;
   font-size: 14pt;
 }
+
+.rubyDeck, .javascriptDeck {
+  display: none;
+}
