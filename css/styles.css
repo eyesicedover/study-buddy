@@ -225,7 +225,10 @@ ol li {
   font-family: 'Lato', sans-serif;
 }
 
-.rubyDeck, .javascriptDeck {
+.active {
+  color: red;
+}
 
+.rubyDeck, .javascriptDeck {
   display: none;
 }
