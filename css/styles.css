@@ -93,3 +93,37 @@ li {
 ul :hover {
   color: red;
 }
+
+.eachCard{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px black;
+  width: 35em;
+  height: 20em;
+  background-color: white;
+}
+
+.cardFront{
+
+  font-size: 23pt;
+}
+.cardMarker{
+padding-bottom: 80px;
+padding-left: 99%;
+
+}
+#checkMark{
+  float: left;
+}
+.cardBack{
+  padding: 80px;
+  padding-top: 0;
+  text-align: center;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+  display: none;
+}
