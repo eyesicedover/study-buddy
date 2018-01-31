@@ -164,7 +164,6 @@ $(document).ready(function() {
     console.log(searchTerm);
   });
 
-
   // subjects
   $(".subject-btn").click(function() {
     var subject = $(this).val();
