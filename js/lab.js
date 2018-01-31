@@ -35,8 +35,6 @@ function showAll(cardsArray) {
 
 $(document).ready(function() {
 
-  // var searchArray = [];
-
   var newCard = new Card("Computer Science", "JavaScript", "forLoop", "for (i = 0; i < array.length; i++) {console.log(i)}", 1);
   cardsArray.push(newCard);
 

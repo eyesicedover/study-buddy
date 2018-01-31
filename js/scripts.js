@@ -31,16 +31,22 @@ function makeCard() {
   var term = $("input#term").val();
   var definition = $("input#definition").val();
   number += 1;
-  var newCard = new Card(subject, category, term, definition, number);
-  cardsArray.push(newCard);
-  $(".makeCard").hide();
-  $("form#makeCardForm").trigger("reset");
-  return newCard;
+  if (term === "" || definition === "" ) {
+    alert("Please fill in all fields.");
+  } else {
+    var newCard = new Card(subject, category, term, definition, number);
+    cardsArray.push(newCard);
+    $("#makeOrViewCard").hide();
+    $(".makeCard").hide();
+    $("form#makeCardForm").trigger("reset");
+    return newCard;
+  }
 }
 
 function selectSubject(subject) {
   currentSelections.setSubject(subject);
   currentSelections.setCategory("");
+  $("li").removeClass("active");
   $("#chooseViewCards").hide();
   $("#makeOrViewCard").hide();
   $(".subject").hide();
@@ -61,6 +67,18 @@ function selectCategory(category) {
   $("#makeOrViewCard").show();
   console.log(category);
   console.log(currentSelections);
+}
+
+function filterForCurrentSelections() {
+  var filteredArray = [];
+  var subject = currentSelections.getSubject();
+  var category = currentSelections.getCategory();
+  cardsArray.forEach(function(card) {
+    if (card.subject === subject && card.category === category) {
+      filteredArray.push(card);
+    }
+  });
+  return filteredArray;
 }
 
 CurrentSelections.prototype.setSubject = function(subject) {
