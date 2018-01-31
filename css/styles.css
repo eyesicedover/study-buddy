@@ -153,9 +153,9 @@ ol li {
   width: 550px;
 }
 
-/*.makeCard, .displaySingleCard, .displayCardList, .mathematics, .languages, .computerScience, #categoryHeader {
+#makeOrViewCard, .makeCard, .displaySingleCard, .displayCardList, .mathematics, .languages, .computerScience, #categoryHeader {
   display: none;
-}*/
+}
 
 .about {
   font-family: 'Lato', sans-serif;
@@ -264,4 +264,22 @@ ol li {
   top: 125px;
   margin-right: 15%;
   font-size: 2em;
+}
+
+.searchBar {
+  font-family: 'Lato', sans-serif;
+  margin-right: 15%;
+}
+
+#searchTermButton {
+  display: block;
+  float: right;
+  font-size: 17px;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#userTermSearch {
+  margin-right: 0px;
 }
