@@ -16,8 +16,13 @@
     <a class="active" href="index.html" id="homeTab">Home</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
-    <a href="" id="light">Light Mode</a>
-    <a href="" id="dark">Dark Mode</a>
+    <div class="searchBar">
+      <form id="typeInput">
+        <button type="submit" class="btn btn-success" id="searchTermButton">Search</button>
+        <input type="text" autocomplete="off" id="userTermSearch" onkeyup="termFinder()" placeholder="search terms">
+
+      </form>
+    </div>
   </div>
   <div class="row">
     <div class="jumbotron">
@@ -82,7 +87,7 @@
     <div class="well displaySingleCard">
       <span class="glyphicon glyphicon-chevron-left"></span>
       <span class="glyphicon glyphicon-chevron-right"></span>
-      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+      <div class="flip-container text-center" ontouchstart="this.classList.toggle('hover');">
         <div class="flipper">
           <div class="front">
             <p>FRONT</p>
