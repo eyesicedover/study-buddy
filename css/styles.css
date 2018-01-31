@@ -154,9 +154,9 @@ ol li {
   width: 550px;
 }
 
-#makeOrViewCard, .makeCard, .displaySingleCard, .displayCardList, .mathematics, .languages, .computerScience, #categoryHeader {
+/*#makeOrViewCard, .makeCard, .displaySingleCard, .displayCardList, .mathematics, .languages, .computerScience, #categoryHeader {
   display: none;
-}
+}*/
 
 .about {
   font-family: 'Lato', sans-serif;
@@ -174,15 +174,30 @@ ol li {
 
 .flip-container {
   perspective: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 50%;
+  margin-right: 50%;
   margin: 10px;
+}
+
+#singleCard {
+  perspective: 1000px;
+  margin: 0 auto;
+  width: 400px;
+  height: 250px;
+}
+
+#singleCard p {
+  text-align: center;
+  margin-top: 100px;
+  font-size: 14pt;
+  color: black;
 }
 
 .flip-container p {
   text-align: center;
-  margin-top: 100px;;
+  margin-top: 100px;
   font-size: 14pt;
+  color: black;
 }
 
 /* flip the pane when hovered */
@@ -191,12 +206,20 @@ ol li {
   transform: rotateY(180deg);
 }
 
+#singleCard:hover .flipper, #singleCard.hover .flipper {
+  transform: rotateY(180deg);
+}
+
 .flip-container, .front, .back {
   width: 400px;
   height: 250px;
-  background-color: black;
   color: white;
 }
+
+ .front, .back {
+  background-image: url(../img/paper.jpg);
+ }
+
 
 /* flip speed goes here */
 
