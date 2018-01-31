@@ -41,7 +41,7 @@ function showAll(cardsArray) {
       var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,'+card.number+'"/>'
     }
     $("#cardDisplay").append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front" id ="' + card.number + '"><p id ="' + card.number + '">' + card.term + '</p></div><div class="back" id ="' + card.number + '">' + cardMarker + '<p id ="' + card.number + '">' + card.definition + '</p></div></div></div>');
-  })
+  });
 };
 
 
