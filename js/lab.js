@@ -25,7 +25,7 @@ function boxUpdate(cardsArray, cardTarget2) {
     if (card.number === cardTarget2) {
       console.log(card);
     }
-  })
+  });
 };
 // function showAll(cardsArray) {
 // cardsArray.forEach(function(card) {
@@ -47,7 +47,7 @@ function showAll(cardsArray) {
       var cardMarker = '<input type="checkbox" name="marked" value="marked" id="checkMark"/>'
     }
     $("#cardDisplay").append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front" id ="' + card.number + '"><p id ="' + card.number + '">' + card.term + '</p></div><div class="back" id ="' + card.number + '">' + cardMarker + '<p id ="' + card.number + '">' + card.definition + '</p></div></div></div>');
-  })
+  });
 };
 
 
@@ -103,5 +103,5 @@ $(document).ready(function() {
     var cardTarget2 = parseInt(getId);
     boxUpdate(cardsArray, cardTarget2);
     console.log("click", cardTarget2, typeof cardTarget2);
-  })
+  });
 });
