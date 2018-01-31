@@ -81,6 +81,16 @@ function filterForCurrentSelections() {
   return filteredArray;
 }
 
+function search(searchTerm) {
+  var searchArray = [];
+  for (var i = 0; i < cardsArray.length; i++) {
+    if (cardsArray[i].term.toLowerCase().includes(searchTerm.toLowerCase()) || cardsArray[i].definition.includes(searchTerm.toLowerCase())) {
+      searchArray.push(cardsArray[i]);
+    }
+  }
+  return searchArray;
+}
+
 CurrentSelections.prototype.setSubject = function(subject) {
   currentSelections.subject = subject;
 }
@@ -110,45 +120,55 @@ Subject.prototype.addCategory = function(category) {
 $(document).ready(function() {
 
   // cards
-  var newCard = new Card("Computer Science", "JavaScript", "forLoop", "for (i = 0; i < array.length; i++) {console.log(i)}");
-  cardsArray.push(newCard);
+  // var newCard = new Card("Computer Science", "JavaScript", "forLoop", "for (i = 0; i < array.length; i++) {console.log(i)}");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("Computer Science", "vocabulary", "parameter", "a variable that is assigned to an argument");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("Computer Science", "vocabulary", "argument", "what is passed into a function or method");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("Computer Science", "vocabulary", "constructor", "A blueprint for creating many of the same type objects. Constructors add properties.");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("Computer Science", "vocabulary", "instance", "Objects created with a constructor are instances of the type defined by the constructor. A constructor can be used to create many instances of the same type.");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("Computer Science", "vocabulary", "prototype", "Prototypes store methods to be shared by all objects of the same type.");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("Languages", "Spanish", "hello", "hola");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("Languages", "Spanish", "goodbye", "adios");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("Languages", "Spanish", "Where is the library?", "Donde esta la biblioteca?");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("Languages", "French", "Where is the library?", "Où est la bibliothèque?");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("Languages", "Russian", "Where is the library?", "где библиотека?");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("Languages", "Indonesian", "Where is the library?", "Dimana perpustakaannya?");
+  // cardsArray.push(newCard);
 
-  newCard = new Card("Computer Science", "vocabulary", "parameter", "a variable that is assigned to an argument");
-  cardsArray.push(newCard);
+  //search button
+  $("#typeInput").submit(function(event) {
+    event.preventDefault();
+    var searchTerm = $("input#userTermSearch").val();
+    search(searchTerm);
+    console.log(searchTerm);
+  });
 
-  newCard = new Card("Computer Science", "vocabulary", "argument", "what is passed into a function or method");
-  cardsArray.push(newCard);
-
-  newCard = new Card("Computer Science", "vocabulary", "constructor", "A blueprint for creating many of the same type objects. Constructors add properties.");
-  cardsArray.push(newCard);
-
-  newCard = new Card("Computer Science", "vocabulary", "instance", "Objects created with a constructor are instances of the type defined by the constructor. A constructor can be used to create many instances of the same type.");
-  cardsArray.push(newCard);
-
-  newCard = new Card("Computer Science", "vocabulary", "prototype", "Prototypes store methods to be shared by all objects of the same type.");
-  cardsArray.push(newCard);
-
-  newCard = new Card("Languages", "Spanish", "hello", "hola");
-  cardsArray.push(newCard);
-
-  newCard = new Card("Languages", "Spanish", "goodbye", "adios");
-  cardsArray.push(newCard);
-
-  newCard = new Card("Languages", "Spanish", "Where is the library?", "Donde esta la biblioteca?");
-  cardsArray.push(newCard);
-
-  newCard = new Card("Languages", "French", "Where is the library?", "Où est la bibliothèque?");
-  cardsArray.push(newCard);
-
-  newCard = new Card("Languages", "Russian", "Where is the library?", "где библиотека?");
-  cardsArray.push(newCard);
-
-  newCard = new Card("Languages", "Indonesian", "Where is the library?", "Dimana perpustakaannya?");
-  cardsArray.push(newCard);
 
   // subjects
   $(".subject-btn").click(function() {
     var subject = $(this).val();
+    console.log(subject);
     selectSubject(subject);
   });
 

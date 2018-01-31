@@ -20,34 +20,29 @@ function Card(subject, category, term, definition, number, marked) {
   this.marked = marked;
 }
 
-function boxUpdate(cardsArray, cardTarget2) {
+function boxUpdate(cardsArray, cardTarget2, checkValidation) {
   cardsArray.forEach(function(card) {
     if (card.number === cardTarget2) {
-      console.log(card);
-    }
+      // console.log("1", card);
+        card.marked = checkValidation;
+        // console.log("2", card);
+        return card;
+        }
   })
+
 };
-// function showAll(cardsArray) {
-// cardsArray.forEach(function(card) {
-//   console.log(card.marked, card)
-//   if (card.marked === true){
-//     var cardMarker = '<div class="cardMarker"><input type="checkbox" name="marked" value="marked" id="checkMark" checked="checked"/>'
-//   }else {
-//       var cardMarker = '<div class="cardMarker"><input type="checkbox" name="marked" value="marked" id="checkMark"/>'
-//     }
-//   $("#cardDisplay").append('<div class="eachCard" id="'+card.term+'" ><div class = "cardFront" id="' + card.term + 'Display">' + card.term + '</div><div class= "cardBack" id="' + card.term + 'Show">'+cardMarker+'</div>' + card.definition + '</div></div>');
-// })
+
 
 function showAll(cardsArray) {
   cardsArray.forEach(function(card) {
     // console.log(card);
     if (card.marked === true) {
-      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="checkMark" checked="checked"/>'
+      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,'+card.number+'" checked="checked"/>'
     } else {
-      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="checkMark"/>'
+      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,'+card.number+'"/>'
     }
     $("#cardDisplay").append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front" id ="' + card.number + '"><p id ="' + card.number + '">' + card.term + '</p></div><div class="back" id ="' + card.number + '">' + cardMarker + '<p id ="' + card.number + '">' + card.definition + '</p></div></div></div>');
-  })
+  });
 };
 
 
@@ -98,10 +93,17 @@ $(document).ready(function() {
     $("#" + cardTarget + "Show").fadeToggle(300, "linear");
   });
 
-  $(".back").click(function() {
+  // $("#lessOne").click(function(){
+  //   var viewerIndex -= 1;
+  //
+  // }
+
+  $(":checkbox").click(function() {
     var getId = $(this).attr('id');
-    var cardTarget2 = parseInt(getId);
-    boxUpdate(cardsArray, cardTarget2);
-    console.log("click", cardTarget2, typeof cardTarget2);
+    var checkValidation = document.getElementById(getId).checked;
+    var splitId = $(this).attr('id').split(",");
+    var cardTarget2 = parseInt(splitId[1]);
+    boxUpdate(cardsArray, cardTarget2, checkValidation);
   })
+
 });
