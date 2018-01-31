@@ -40,6 +40,7 @@ function makeCard() {
     $(".makeCard").hide();
     $("form#makeCardForm").trigger("reset");
     $(".displayCard").empty();
+    $(".displayCard").show();
     var filteredArray = filterForCurrentSelections();
     showAll(filteredArray);
     return newCard;
