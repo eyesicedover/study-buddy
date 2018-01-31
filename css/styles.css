@@ -253,3 +253,21 @@ ol li {
   margin-right: 15%;
   font-size: 2em;
 }
+
+.searchBar {
+  font-family: 'Lato', sans-serif;
+  margin-right: 15%;
+}
+
+#searchTermButton {
+  display: block;
+  float: right;
+  font-size: 17px;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#userTermSearch {
+  margin-right: 0px;
+}
