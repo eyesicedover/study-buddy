@@ -127,9 +127,13 @@ ul :hover {
   flex-wrap: wrap;
   align-content: space-between;
   width: 95em;
-  height: 95em;
+  height: 80em;
   background: white;
   font-family: 'Lato', sans-serif;
+  opacity: .9;
+  background-color: #B7B599;
+  margin-left: -100px;
+  margin-bottom: 200px;
 }
 
 /*
