@@ -20,17 +20,37 @@ function Card(subject, category, term, definition, number, marked) {
   this.marked = marked;
 }
 
-function showAll(cardsArray) {
+function boxUpdate(cardsArray, cardTarget2) {
   cardsArray.forEach(function(card) {
-    console.log(card.marked, card)
-    if (card.marked === true){
-      var cardMarker = '<div class="cardMarker"><input type="checkbox" name="marked" value="marked" id="checkMark" checked="checked"/>'
-    }else {
-        var cardMarker = '<div class="cardMarker"><input type="checkbox" name="marked" value="marked" id="checkMark"/>'
-      }
-    $("#cardDisplay").append('<div class="eachCard" id="'+card.term+'" ><div class = "cardFront" id="' + card.term + 'Display">' + card.term + '</div><div class= "cardBack" id="' + card.term + 'Show">'+cardMarker+'</div>' + card.definition + '</div></div>');
+    if (card.number === cardTarget2) {
+      console.log(card);
+    }
   })
 };
+// function showAll(cardsArray) {
+// cardsArray.forEach(function(card) {
+//   console.log(card.marked, card)
+//   if (card.marked === true){
+//     var cardMarker = '<div class="cardMarker"><input type="checkbox" name="marked" value="marked" id="checkMark" checked="checked"/>'
+//   }else {
+//       var cardMarker = '<div class="cardMarker"><input type="checkbox" name="marked" value="marked" id="checkMark"/>'
+//     }
+//   $("#cardDisplay").append('<div class="eachCard" id="'+card.term+'" ><div class = "cardFront" id="' + card.term + 'Display">' + card.term + '</div><div class= "cardBack" id="' + card.term + 'Show">'+cardMarker+'</div>' + card.definition + '</div></div>');
+// })
+
+function showAll(cardsArray) {
+  cardsArray.forEach(function(card) {
+    // console.log(card);
+    if (card.marked === true) {
+      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="checkMark" checked="checked"/>'
+    } else {
+      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="checkMark"/>'
+    }
+    $("#cardDisplay").append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front" id ="' + card.number + '"><p id ="' + card.number + '">' + card.term + '</p></div><div class="back" id ="' + card.number + '">' + cardMarker + '<p id ="' + card.number + '">' + card.definition + '</p></div></div></div>');
+  })
+};
+
+
 
 
 $(document).ready(function() {
@@ -77,12 +97,11 @@ $(document).ready(function() {
     $("#" + cardTarget + "Display").fadeToggle(300, "linear");
     $("#" + cardTarget + "Show").fadeToggle(300, "linear");
   });
-// $("#checkMark").onChange(function(){
-//
-// })
 
-  $("#").click(function() {
-    var cardTarget2 = $(this).attr('id');
-    console.log("click", cardTarget2);
+  $(".back").click(function() {
+    var getId = $(this).attr('id');
+    var cardTarget2 = parseInt(getId);
+    boxUpdate(cardsArray, cardTarget2);
+    console.log("click", cardTarget2, typeof cardTarget2);
   })
 });

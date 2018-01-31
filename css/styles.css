@@ -98,7 +98,7 @@ ul :hover {
   color: red;
 }
 
-.eachCard {
+/*.eachCard {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -112,17 +112,26 @@ ul :hover {
 
 .cardFront {
   font-size: 23pt;
-}
+}*/
 
 .cardMarker {
   padding-bottom: 80px;
   padding-left: 99%;
 }
 
-#checkMark {
 
+#cardDisplay{
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+  align-content: space-between;
+  width: 95em;
+  height: 95em;
+  background: white;
+  font-family: 'Lato', sans-serif;
 }
 
+/*
 .cardBack {
   display: none;
   padding: 80px;
@@ -131,7 +140,7 @@ ul :hover {
   justify-content: space-around;
   height: 100%;
   width: 100%;
-}
+}*/
 
 ol li {
   list-style-position: inside;
@@ -166,9 +175,11 @@ ol li {
   perspective: 1000px;
   margin-left: auto;
   margin-right: auto;
+  margin: 10px;
 }
 
 .flip-container p {
+  text-align: center;
   margin-top: 100px;;
   font-size: 14pt;
 }
