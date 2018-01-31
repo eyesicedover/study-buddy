@@ -1,6 +1,7 @@
 var currentSelections = new CurrentSelections;
 var number = 0;
 var cardsArray = [];
+var subjectArray = [];
 
 function Subject(name) {
   this.name = name;
@@ -31,7 +32,7 @@ function makeCard() {
   var term = $("input#term").val();
   var definition = $("input#definition").val();
   number += 1;
-  if (term === "" || definition === "" ) {
+  if (term === "" || definition === "") {
     alert("Please fill in all fields.");
   } else {
     var newCard = new Card(subject, category, term, definition, number);
@@ -84,113 +85,191 @@ function filterForCurrentSelections() {
 function search(searchTerm) {
   var searchArray = [];
   for (var i = 0; i < cardsArray.length; i++) {
-    if (cardsArray[i].term.toLowerCase().includes(searchTerm.toLowerCase()) || cardsArray[i].definition.includes(searchTerm.toLowerCase())) {
-      searchArray.push(cardsArray[i]);
+    if ((cardsArray[i].term.includes(searchTerm)) || (cardsArray[i].definition.includes(searchTerm))) {
+        searchArray.push(cardsArray[i]);
+      }
     }
+    console.log(searchArray);
+    return searchArray;
   }
-  return searchArray;
-}
 
-CurrentSelections.prototype.setSubject = function(subject) {
-  currentSelections.subject = subject;
-}
-
-CurrentSelections.prototype.getSubject = function(subject) {
-  return currentSelections.subject;
-}
-
-CurrentSelections.prototype.setCategory = function(category) {
-  currentSelections.category = category;
-}
-
-CurrentSelections.prototype.getCategory = function(category) {
-  return currentSelections.category;
-}
-
-Subject.prototype.addCategory = function(category) {
-  if (this.categories.includes(category) === false) {
-    this.categories.push(category);
+  function createCategory(subject, category) {
+    $("." + subject + " ul").append("<li id='" + category + "'>" + category + "</li>");
+    console.log(category)
+    var newCategory = new Category(category);
+    for (var i = 0; i < subjectArray.length; i++) {
+      if (subjectArray[i].name === subject) {
+        subjectArray[i].categories.push(newCategory);
+      }
+    }
+    console.log(newCategory);
+    console.log(subjectArray);
+    // subjectObject.category = category
   }
-  return Subject;
-}
 
-// Card.prototype.editCard =
+  function showAll(cardsArray) {
+    cardsArray.forEach(function(card) {
+      // console.log(card);
+      if (card.marked === true) {
+        var cardMarker = '<input type="checkbox" name="marked" value="marked" id="checkMark" checked="checked"/>'
+      } else {
+        var cardMarker = '<input type="checkbox" name="marked" value="marked" id="checkMark"/>'
+      }
+      $(".displayCard").append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front" id ="' + card.number + '"><p id ="' + card.number + '">' + card.term + '</p></div><div class="back" id ="' + card.number + '">' + cardMarker + '<p id ="' + card.number + '">' + card.definition + '</p></div></div></div>');
+    });
+  };
+
+  CurrentSelections.prototype.setSubject = function(subject) {
+    currentSelections.subject = subject;
+  }
+
+  CurrentSelections.prototype.getSubject = function(subject) {
+    return currentSelections.subject;
+  }
+
+  CurrentSelections.prototype.setCategory = function(category) {
+    currentSelections.category = category;
+  }
+
+  CurrentSelections.prototype.getCategory = function(category) {
+    return currentSelections.category;
+  }
+
+  Subject.prototype.addCategory = function(category) {
+    if (this.categories.includes(category) === false) {
+      this.categories.push(category);
+    }
+    return Subject;
+  }
+
+  // Card.prototype.editCard =
 
 
-$(document).ready(function() {
+  $(document).ready(function() {
 
-  // cards
-  // var newCard = new Card("Computer Science", "JavaScript", "forLoop", "for (i = 0; i < array.length; i++) {console.log(i)}");
-  // cardsArray.push(newCard);
-  //
-  // newCard = new Card("Computer Science", "vocabulary", "parameter", "a variable that is assigned to an argument");
-  // cardsArray.push(newCard);
-  //
-  // newCard = new Card("Computer Science", "vocabulary", "argument", "what is passed into a function or method");
-  // cardsArray.push(newCard);
-  //
-  // newCard = new Card("Computer Science", "vocabulary", "constructor", "A blueprint for creating many of the same type objects. Constructors add properties.");
-  // cardsArray.push(newCard);
-  //
-  // newCard = new Card("Computer Science", "vocabulary", "instance", "Objects created with a constructor are instances of the type defined by the constructor. A constructor can be used to create many instances of the same type.");
-  // cardsArray.push(newCard);
-  //
-  // newCard = new Card("Computer Science", "vocabulary", "prototype", "Prototypes store methods to be shared by all objects of the same type.");
-  // cardsArray.push(newCard);
-  //
-  // newCard = new Card("Languages", "Spanish", "hello", "hola");
-  // cardsArray.push(newCard);
-  //
-  // newCard = new Card("Languages", "Spanish", "goodbye", "adios");
-  // cardsArray.push(newCard);
-  //
-  // newCard = new Card("Languages", "Spanish", "Where is the library?", "Donde esta la biblioteca?");
-  // cardsArray.push(newCard);
-  //
-  // newCard = new Card("Languages", "French", "Where is the library?", "Où est la bibliothèque?");
-  // cardsArray.push(newCard);
-  //
-  // newCard = new Card("Languages", "Russian", "Where is the library?", "где библиотека?");
-  // cardsArray.push(newCard);
-  //
-  // newCard = new Card("Languages", "Indonesian", "Where is the library?", "Dimana perpustakaannya?");
-  // cardsArray.push(newCard);
+    // cards
+    var newCard = new Card("computerScience", "JavaScript", "forLoop", "for (i = 0; i < array.length; i++) {console.log(i)}");
+    cardsArray.push(newCard);
 
-  //search button
-  $("#typeInput").submit(function(event) {
-    event.preventDefault();
-    var searchTerm = $("input#userTermSearch").val();
-    search(searchTerm);
-    console.log(searchTerm);
+    newCard = new Card("computerScience", "JavaScript", "parameter", "a variable that is assigned to an argument");
+    cardsArray.push(newCard);
+
+    newCard = new Card("computerScience", "JavaScript", "argument", "what is passed into a function or method");
+    cardsArray.push(newCard);
+
+    newCard = new Card("computerScience", "JavaScript", "constructor", "A blueprint for creating many of the same type objects. Constructors add properties.");
+    cardsArray.push(newCard);
+
+    newCard = new Card("computerScience", "JavaScript", "instance", "Objects created with a constructor are instances of the type defined by the constructor. A constructor can be used to create many instances of the same type.");
+    cardsArray.push(newCard);
+
+    newCard = new Card("computerScience", "JavaScript", "prototype", "Prototypes store methods to be shared by all objects of the same type.");
+    cardsArray.push(newCard);
+
+    newCard = new Card("languages", "Spanish", "hello", "hola");
+    cardsArray.push(newCard);
+
+    newCard = new Card("languages", "Spanish", "goodbye", "adios");
+    cardsArray.push(newCard);
+
+    newCard = new Card("languages", "Spanish", "Where is the library?", "Donde esta la biblioteca?");
+    cardsArray.push(newCard);
+
+    newCard = new Card("languages", "French", "Where is the library?", "Où est la bibliothèque?");
+    cardsArray.push(newCard);
+
+    newCard = new Card("languages", "Russian", "Where is the library?", "где библиотека?");
+    cardsArray.push(newCard);
+
+    newCard = new Card("languages", "Indonesian", "Where is the library?", "Dimana perpustakaannya?");
+    cardsArray.push(newCard);
+
+    // subjects ad categories
+    var newSubject = new Subject("computerscience");
+    var newCategory = new Category("Ruby");
+    newSubject.categories.push(newCategory);
+    newCategory = new Category("JavaScript");
+    newSubject.categories.push(newCategory);
+    newCategory = new Category("C Sharp");
+    newSubject.categories.push(newCategory);
+    newCategory = new Category("Dot Net");
+    newSubject.categories.push(newCategory);
+    subjectArray.push(newSubject);
+
+    newSubject = new Subject("languages");
+    newCategory = new Category("Spanish");
+    newSubject.categories.push(newCategory);
+    newCategory = new Category("French");
+    newSubject.categories.push(newCategory);
+    newCategory = new Category("Russian");
+    newSubject.categories.push(newCategory);
+    newCategory = new Category("Indonesian");
+    newSubject.categories.push(newCategory);
+    subjectArray.push(newSubject);
+
+    newSubject = new Subject("Mathematics");
+    newCategory = new Category("Calculus");
+    newSubject.categories.push(newCategory);
+    newCategory = new Category("Algebra");
+    newSubject.categories.push(newCategory);
+    newCategory = new Category("Geometry");
+    newSubject.categories.push(newCategory);
+    newCategory = new Category("Proofs");
+    newSubject.categories.push(newCategory);
+    subjectArray.push(newSubject);
+    console.log(subjectArray);
+
+
+    // create new category
+    $("").submit(function(event) {
+      var newCategory = $("input#").val();
+    });
+
+    //search button
+    $("#typeInput").submit(function(event) {
+      event.preventDefault();
+      var searchTerm = $("input#userTermSearch").val();
+      var filteredArray = search(searchTerm);
+      showAll(filteredArray);
+      $(".displayCard").show();
+      console.log(searchTerm);
+    });
+
+    // subjects
+    $(".subject-btn").click(function() {
+      var subject = $(this).val();
+      console.log(subject);
+      selectSubject(subject);
+    });
+
+    // categories
+    $("li").click(function() {
+      // var category = $(this).text().toLowerCase().replace(" ", "");
+      var category = $(this).html();
+      var otherCategory = $(this.this$0).html();
+      console.log(category);
+      console.log(otherCategory);
+      selectCategory(category);
+      $(this).addClass("active");
+    });
+
+    $("#chooseMakeCard").click(function() {
+      $(".makeCard").show();
+    });
+
+    $("#chooseViewCards").click(function() {
+      console.log(cardsArray);
+      var filteredArray = filterForCurrentSelections();
+      console.log(filteredArray);
+      showAll(filteredArray);
+      $(".displayCard").show();
+    });
+
+    $("form#makeCardForm").submit(function(event) {
+      event.preventDefault();
+
+      var newCard = makeCard();
+      console.log(newCard);
+    });
+
   });
-
-  // subjects
-  $(".subject-btn").click(function() {
-    var subject = $(this).val();
-    console.log(subject);
-    selectSubject(subject);
-  });
-
-  // categories
-  $("li").click(function() {
-    var category = $(this).text().toLowerCase().replace(" ", "");
-    selectCategory(category);
-    $(this).addClass("active");
-  });
-
-  $("#chooseMakeCard").click(function() {
-    $(".makeCard").show();
-  });
-
-  $("#chooseViewCards").click(function() {
-    $("").show();
-  });
-
-  $("form#makeCardForm").submit(function(event) {
-    event.preventDefault();
-
-    var newCard = makeCard();
-    console.log(newCard);
-  });
-
-});
