@@ -69,6 +69,18 @@ function selectCategory(category) {
   console.log(currentSelections);
 }
 
+function filterForCurrentSelections() {
+  var filteredArray = [];
+  var subject = currentSelections.getSubject();
+  var category = currentSelections.getCategory();
+  cardsArray.forEach(function(card) {
+    if (card.subject === subject && card.category === category) {
+      filteredArray.push(card);
+    }
+  });
+  return filteredArray;
+}
+
 CurrentSelections.prototype.setSubject = function(subject) {
   currentSelections.subject = subject;
 }
@@ -92,7 +104,6 @@ Subject.prototype.addCategory = function(category) {
   return Subject;
 }
 
-// filter by subject and category
 // Card.prototype.editCard =
 
 
