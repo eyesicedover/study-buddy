@@ -20,7 +20,7 @@
     <a href="contact.html">Contact</a>
     <div class="searchBar">
       <form id="typeInput">
-        <button type="submit" class="btn btn-success" id="searchTermButton"><span class="glyphicon glyphicon-search"></span>Search</button>
+        <button type="submit" class="btn" id="searchTermButton"><span class="glyphicon glyphicon-search"></span>Search</button>
         <input type="text" autocomplete="off" id="userTermSearch" onkeyup="search()" placeholder="search terms">
       </form>
     </div>
@@ -86,9 +86,9 @@
       </form>
     </div>
     <div class="well displaySingleCard">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <div class="flip-container text-center" ontouchstart="this.classList.toggle('hover');">
+      <span class="glyphicon glyphicon-chevron-left" id="lessOne"></span>
+      <span class="glyphicon glyphicon-chevron-right" id="plusOne"></span>
+      <div ontouchstart="this.classList.toggle('hover');" id="singleCard">
         <div class="flipper">
           <div class="front">
             <p>FRONT</p>
