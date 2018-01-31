@@ -158,7 +158,7 @@ ol li {
   width: 550px;
 }
 
-#makeOrViewCard, .makeCard, .displaySingleCard, .displayCardList, .mathematics, .languages, .computerScience, #categoryHeader {
+#makeOrViewCard, .makeCard, .displaySingleCard, .displayCard, .mathematics, .languages, .computerScience, #categoryHeader {
   display: none;
 }
 
