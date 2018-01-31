@@ -29,6 +29,7 @@ function boxUpdate(cardsArray, cardTarget2, checkValidation) {
         return card;
         }
   })
+
 };
 
 
@@ -104,4 +105,5 @@ $(document).ready(function() {
     var cardTarget2 = parseInt(splitId[1]);
     boxUpdate(cardsArray, cardTarget2, checkValidation);
   })
+
 });
