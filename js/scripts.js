@@ -31,16 +31,22 @@ function makeCard() {
   var term = $("input#term").val();
   var definition = $("input#definition").val();
   number += 1;
-  var newCard = new Card(subject, category, term, definition, number);
-  cardsArray.push(newCard);
-  $(".makeCard").hide();
-  $("form#makeCardForm").trigger("reset");
-  return newCard;
+  if (term === "" || definition === "" ) {
+    alert("Please fill in all fields.");
+  } else {
+    var newCard = new Card(subject, category, term, definition, number);
+    cardsArray.push(newCard);
+    $("#makeOrViewCard").hide();
+    $(".makeCard").hide();
+    $("form#makeCardForm").trigger("reset");
+    return newCard;
+  }
 }
 
 function selectSubject(subject) {
   currentSelections.setSubject(subject);
   currentSelections.setCategory("");
+  $("li").removeClass("active");
   $("#chooseViewCards").hide();
   $("#makeOrViewCard").hide();
   $(".subject").hide();
@@ -86,6 +92,7 @@ Subject.prototype.addCategory = function(category) {
   return Subject;
 }
 
+// filter by subject and category
 // Card.prototype.editCard =
 
 
