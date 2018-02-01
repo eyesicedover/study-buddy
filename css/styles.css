@@ -59,7 +59,7 @@ body {
 }
 
 .well {
-  rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.7);
   text-align: center;
 }
 
@@ -251,4 +251,10 @@ ol li {
   border-right: 0px;
   border-style: solid;
   border-color: #2C98F0;
+}
+
+input[type=checkbox]  {
+  zoom: 2;
+  float: left;
+  margin-left: 5px;
 }
