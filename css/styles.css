@@ -107,11 +107,7 @@ ol li {
   list-style-position: inside;
 }
 
-<<<<<<< HEAD
-#makeOrViewCard, .makeCard, .displayCard, .mathematics, .languages, .computerScience, #categoryHeader {
-=======
 #makeOrViewCard, .makeCard, .displaySingleCard, .displayCard, .mathematics, .languages, .computerScience, #categoryHeader, .editCard, #chooseMakeCategory, .makeCategory {
->>>>>>> 9d08f5e8fbefb38d430618a64fb1a7f59a600b92
  display: none;
 }
 
