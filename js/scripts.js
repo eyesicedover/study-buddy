@@ -134,7 +134,7 @@ function redundancyCheck(subject, category) {
     // debugger;
     var forStop = subjectArray[index].categories.length;
     for (var j = 0; j < forStop; j++) {
-      if ((subject === subjectArray[index].name) && (category === subjectArray[index].categories[j].name)) {
+      if ((subject.toLowerCase() === subjectArray[index].name.toLowerCase()) && (category.toLowerCase() === subjectArray[index].categories[j].name.toLowerCase())) {
         existing = true;
         return existing;
         console.log("true", existing);
