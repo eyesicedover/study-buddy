@@ -262,3 +262,8 @@ input[type=checkbox]  {
 #makeOrViewCard {
   margin-top: 15px;
 }
+
+.activeSubject {
+  outline: 10px auto lime;
+  outline-offset: -2px;
+}
