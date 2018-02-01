@@ -6,7 +6,7 @@
   <link href="css/styles.css" rel="stylesheet" type="text/css">
   <script src="js/jquery-3.3.1.js"></script>
   <script src="js/scripts.js"></script>
-  <script src="js/lab.js"></script>
+  <!-- <script src="js/lab.js"></script> -->
   <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <meta charset="utf-8">
@@ -21,7 +21,7 @@
     <div class="searchBar">
       <form id="typeInput">
         <button type="submit" class="btn" id="searchTermButton"><span class="glyphicon glyphicon-search"></span></button>
-        <input type="text" autocomplete="off" id="userTermSearch" onkeyup="search()" placeholder="search">
+        <input type="text" autocomplete="off" id="userTermSearch" placeholder="search">
       </form>
     </div>
   </div>
@@ -40,10 +40,9 @@
         <button type="button" name="language" class="subject-btn btn btn-info" id="languageButton" value="languages">Languages</button>
       </div>
       <br>
-      <h2 id="categoryHeader">Pick a category:</h2>
-      <!-- <button type="submit" class="btn btn-primary" id="makeCardButton">Add Card</button> -->
       <div class="allCategories">
         <div class="subject computerScience">
+          <h2>Pick a category:</h2>
           <ul style="list-style: none">
             <li id="ruby">Ruby</li>
             <li id="javascript">JavaScript</li>
@@ -52,33 +51,45 @@
           </ul>
         </div>
         <div class="subject languages">
+          <h2>Pick a category:</h2>
           <ul style="list-style: none">
             <li id="spanish">Spanish</li>
             <li id="french">French</li>
             <li id="russian">Russian</li>
             <li id="indonesian">Indonesian</li>
-            <li id="chinese">Chinese</li>
           </ul>
         </div>
         <div class="subject mathematics">
+          <h2>Pick a category:</h2>
           <ul style="list-style: none">
             <li id="calculus">Calculus</li>
             <li id="algebra">Algebra</li>
             <li id="geometry">Geometry</li>
-            <li id="proofs">Proofs</li>
           </ul>
         </div>
+        <button type="button" class="btn btn-primary" id="chooseMakeCategory">Make a New Category</button>
       </div>
       <div id="makeOrViewCard">
         <button type="button" class="btn btn-primary" id="chooseMakeCard">Add a Card to this Category</button>
+        <button type="submit" class="btn btn-primary" id="chooseEditCard">Edit a Card in this Category</button>
         <button type="button" class="btn btn-primary" id="chooseViewCards">View All Cards</button>
         <button type="submit" class="btn btn-primary" id="chooseViewSlider">View Cards in Slider</button>
       </div>
     </div>
+    <div class="well makeCategory">
+      <form id="makeCategoryForm">
+        <div class="form-group">
+          <label for="newCategory">Enter new Category name:</label>
+          <input id="newCategory" class="form-control" type="text">
+          <br>
+          <button type="submit" class="btn btn-primary" id="makeNewCategory">Submit</button>
+        </div>
+      </form>
+    </div>
     <div class="well makeCard">
       <h3>Make a card</h3>
       <form id="makeCardForm">
-        <p>Subject: <span class="currentSubject"></span>,  Category: <span class="currentCategory"></span></p>
+        <p>Subject: <span class="currentSubject"></span>, Category: <span class="currentCategory"></span></p>
         <div class="form-group">
           <label for="term">Enter the term:</label>
           <input id="term" class="form-control" type="text">
@@ -88,6 +99,21 @@
           <input id="definition" class="form-control" type="text">
         </div>
         <button type="submit" class="btn btn-primary" id="makeCardButton">Add Card</button>
+      </form>
+    </div>
+    <div class="well editCard">
+      <h3>Edit a card</h3>
+      <form id="editCardForm">
+        <p>Subject: <span class="currentSubject"></span>, Category: <span class="currentCategory"></span></p>
+        <div class="form-group">
+          <label for="term">Edit the term:</label>
+          <input id="editTerm" class="form-control" type="text">
+        </div>
+        <div class="form-group">
+          <label for="definition">Edit the term's definition:</label>
+          <input id="definition" class="form-control" type="text">
+        </div>
+        <button type="submit" class="btn btn-primary" id="editCardButton">Edit Card</button>
       </form>
     </div>
     <div class="well displaySingleCard">
@@ -109,13 +135,13 @@
       </div>
     </div>
 
-    <div class="well displayCard" >
+    <div class="well displayCard">
 
     </div>
   </div>
 
-    <!-- Ian's dungeon labratory begins here -->
-    <!-- <div id="cardDisplay">
+  <!-- Ian's dungeon labratory begins here -->
+  <!-- <div id="cardDisplay">
     </div>
 
    <div class="well displayCardList">

@@ -63,7 +63,7 @@ body {
   text-align: center;
 }
 
-.makeCard {
+.makeCard, .editCard {
   opacity: .85;
   font-family: 'Lato', sans-serif;
 }
@@ -107,7 +107,11 @@ ol li {
   list-style-position: inside;
 }
 
+<<<<<<< HEAD
 #makeOrViewCard, .makeCard, .displayCard, .mathematics, .languages, .computerScience, #categoryHeader {
+=======
+#makeOrViewCard, .makeCard, .displaySingleCard, .displayCard, .mathematics, .languages, .computerScience, #categoryHeader, .editCard, #chooseMakeCategory, .makeCategory {
+>>>>>>> 9d08f5e8fbefb38d430618a64fb1a7f59a600b92
  display: none;
 }
 
@@ -194,7 +198,7 @@ ol li {
   transform: rotateY(180deg);
 }
 
-#chooseMakeCard, #chooseViewCards, #chooseViewSlider, .displaySingleCard, .displayCard {
+#chooseMakeCard, #chooseViewCards, #chooseViewSlider, #chooseEditCard, #chooseMakeCategory, .displaySingleCard, .displayCard, .makeCategory {
   font-family: 'Lato', sans-serif;
 }
 
@@ -251,4 +255,19 @@ ol li {
   border-right: 0px;
   border-style: solid;
   border-color: #2C98F0;
+}
+
+input[type=checkbox]  {
+  zoom: 2;
+  float: left;
+  margin-left: 5px;
+}
+
+#makeOrViewCard {
+  margin-top: 15px;
+}
+
+.activeSubject {
+  outline: 10px auto lime;
+  outline-offset: -2px;
 }

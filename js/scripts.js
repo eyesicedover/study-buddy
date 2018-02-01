@@ -53,10 +53,13 @@ function selectSubject(subject) {
   $(".displayCard").empty();
   $(".displayCard").hide();
   $(".makeCard").hide();
+  $(".makeCategory").hide();
   $("li").removeClass("active");
   $("#chooseViewCards").hide();
   $("#makeOrViewCard").hide();
   $(".subject").hide();
+  $("#chooseMakeCategory").show();
+  $(".subject-btn").removeClass("activeSubject");
   $("." + subject).show();
   $(".currentSubject").text(subject);
 }
@@ -67,6 +70,7 @@ function selectCategory(category) {
   $(".displayCard").empty();
   $(".displayCard").hide();
   $(".subject").hide();
+  $(".makeCategory").hide();
   $("." + subject).show();
   $("." + category + "Deck").show();
   $("li").removeClass("active");
@@ -92,15 +96,20 @@ function displayCurrentSelections() {
   $(".displayCard").empty();
   $(".displayCard").hide();
   $(".makeCard").hide();
+  $(".makeCategory").hide();
   var filteredArray = filterForCurrentSelections();
-  showAll(filteredArray);
+  if (filteredArray.length === 0) {
+    $(".displayCard").html("<h3>No cards here!</h3>")
+  } else {
+    showAll(filteredArray);
+  }
   $(".displayCard").show();
 }
 
 function search(searchTerm) {
   var searchArray = [];
   for (var i = 0; i < cardsArray.length; i++) {
-    if ((cardsArray[i].term.includes(searchTerm)) || (cardsArray[i].definition.includes(searchTerm))) {
+    if ((cardsArray[i].term.toLowerCase().includes(searchTerm.toLowerCase())) || (cardsArray[i].definition.toLowerCase().includes(searchTerm.toLowerCase()))) {
       searchArray.push(cardsArray[i]);
     }
   }
@@ -110,29 +119,53 @@ function search(searchTerm) {
 function displaySearchResults(searchTerm) {
   $(".displayCard").empty();
   var filteredArray = search(searchTerm);
-  showAll(filteredArray);
+  if (filteredArray.length === 0) {
+    $(".displayCard").html("<h3>No cards match!</h3>")
+  } else {
+    showAll(filteredArray);
+  }
   $(".displayCard").show();
 }
 
-function createCategory(subject, category) {
-  $("." + subject + " ul").append("<li id='" + category + "'>" + category + "</li>");
-  var newCategory = new Category(category);
-  for (var i = 0; i < subjectArray.length; i++) {
-    if (subjectArray[i].name === subject) {
-      subjectArray[i].categories.push(newCategory);
+function createCategory() {
+  var category = $("input#newCategory").val();
+  var subject = currentSelections.getSubject();
+  if (redundancyCheck(subject, category) === false) {
+    $("." + subject + " ul").append("<li id='" + category + "'>" + category + "</li>");
+    var newCategory = new Category(category);
+    for (var i = 0; i < subjectArray.length; i++) {
+      if (subjectArray[i].name === subject) {
+        subjectArray[i].categories.push(newCategory);
+        $(".makeCategory").hide();
+        $("form#makeCategoryForm").trigger("reset");
+      }
+    }
+  } else {
+    alert("Category already exists");
+    $("form#makeCategoryForm").trigger("reset");
+  }
+}
+
+function redundancyCheck(subject, category) {
+  var existing = false;
+  for (var index = 0; index < subjectArray.length; index++) {
+    var forStop = subjectArray[index].categories.length;
+    for (var j = 0; j < forStop; j++) {
+      if ((subject.toLowerCase() === subjectArray[index].name.toLowerCase()) && (category.toLowerCase() === subjectArray[index].categories[j].name.toLowerCase())) {
+        existing = true;
+        return existing;
+      }
     }
   }
-  console.log(newCategory);
-  console.log(subjectArray);
-  // subjectObject.category = category
+  return existing;
 }
 
 function showAll(cardsArray) {
   cardsArray.forEach(function(card) {
     if (card.marked === true) {
-      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,'+card.number+'" checked="checked"/>'
+      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,' + card.number + '" checked="checked"/>'
     } else {
-      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,'+card.number+'"/>'
+      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,' + card.number + '"/>'
     }
     $(".displayCard").append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front" id ="' + card.number + '"><p id ="' + card.number + '">' + card.term + '</p></div><div class="back" id ="' + card.number + '">' + cardMarker + '<p id ="' + card.number + '">' + card.definition + '</p></div></div></div>');
   });
@@ -161,6 +194,7 @@ Subject.prototype.addCategory = function(category) {
   return Subject;
 }
 
+<<<<<<< HEAD
 // Card.prototype.editCard =
 
 
@@ -202,9 +236,49 @@ $(document).ready(function() {
   //
   // newCard = new Card("languages", "Indonesian", "Where is the library?", "Dimana perpustakaannya?");
   // cardsArray.push(newCard);
+=======
+function makeCards() {
+  var newCard = new Card("computerScience", "JavaScript", "forLoop", "for (i = 0; i < array.length; i++) {console.log(i)}");
+  cardsArray.push(newCard);
+  newCard = new Card("computerScience", "JavaScript", "parameter", "a variable that is assigned to an argument");
+  cardsArray.push(newCard);
+  newCard = new Card("computerScience", "JavaScript", "argument", "what is passed into a function or method");
+  cardsArray.push(newCard);
+  newCard = new Card("computerScience", "JavaScript", "constructor", "A blueprint for creating many of the same type objects. Constructors add properties.");
+  cardsArray.push(newCard);
+  newCard = new Card("computerScience", "JavaScript", "instance", "Objects created with a constructor are instances of the type defined by the constructor. A constructor can be used to create many instances of the same type.");
+  cardsArray.push(newCard);
+  newCard = new Card("computerScience", "JavaScript", "prototype", "Prototypes store methods to be shared by all objects of the same type.");
+  cardsArray.push(newCard);
+  newCard = new Card("computerScience", "Ruby", "while statement", "while conditional [do] code end");
+  cardsArray.push(newCard);
+  newCard = new Card("computerScience", "C Sharp", "using keyword", "The using keyword is used for including the namespaces in the program. A program can include multiple using statements.");
+  cardsArray.push(newCard);
+  newCard = new Card("computerScience", "Dot Net", "CLR", "common language runtime - a virtual execution system");
+  cardsArray.push(newCard);
+  newCard = new Card("Mathematics", "Calculus", "Absolute Convergence", "Describes a series that converges when all terms are replaced by their absolute values. To see if a series converges absolutely, replace any subtraction in the series with addition. If the new series converges, then the original series converges absolutely.");
+  cardsArray.push(newCard);
+  newCard = new Card("Mathematics", "Algebra", "Compound Fraction", "A fraction which has, as part of its numerator and/or denominator, at least one other fraction.");
+  cardsArray.push(newCard);
+  newCard = new Card("Mathematics", "Geometry", "Polygon", "A closed plane figure for which all sides are line segments. The name of a polygon describes the number of sides. A polygon which has all sides mutually congruent and all angles mutually congruent is called a regular polygon.");
+  cardsArray.push(newCard);
+  newCard = new Card("languages", "Spanish", "hello", "hola");
+  cardsArray.push(newCard);
+  newCard = new Card("languages", "Spanish", "goodbye", "adios");
+  cardsArray.push(newCard);
+  newCard = new Card("languages", "Spanish", "Where is the library?", "Donde esta la biblioteca?");
+  cardsArray.push(newCard);
+  newCard = new Card("languages", "French", "Where is the library?", "Où est la bibliothèque?");
+  cardsArray.push(newCard);
+  newCard = new Card("languages", "Russian", "Where is the library?", "где библиотека?");
+  cardsArray.push(newCard);
+  newCard = new Card("languages", "Indonesian", "Where is the library?", "Dimana perpustakaannya?");
+  cardsArray.push(newCard);
+}
+>>>>>>> 9d08f5e8fbefb38d430618a64fb1a7f59a600b92
 
-  // subjects ad categories
-  var newSubject = new Subject("computerscience");
+function makeSubjectsAndCategories() {
+  var newSubject = new Subject("computerScience");
   var newCategory = new Category("Ruby");
   newSubject.categories.push(newCategory);
   newCategory = new Category("JavaScript");
@@ -226,22 +300,23 @@ $(document).ready(function() {
   newSubject.categories.push(newCategory);
   subjectArray.push(newSubject);
 
-  newSubject = new Subject("Mathematics");
+  newSubject = new Subject("mathematics");
   newCategory = new Category("Calculus");
   newSubject.categories.push(newCategory);
   newCategory = new Category("Algebra");
   newSubject.categories.push(newCategory);
   newCategory = new Category("Geometry");
   newSubject.categories.push(newCategory);
-  newCategory = new Category("Proofs");
-  newSubject.categories.push(newCategory);
   subjectArray.push(newSubject);
+}
 
+$(document).ready(function() {
 
-  // create new category
-  $("").submit(function(event) {
-    var newCategory = $("input#").val();
-  });
+  // cards
+  makeCards();
+
+  // subjects and categories
+  makeSubjectsAndCategories();
 
   // search button
   $("#typeInput").submit(function(event) {
@@ -254,6 +329,7 @@ $(document).ready(function() {
   $(".subject-btn").click(function() {
     var subject = $(this).val();
     selectSubject(subject);
+    $(this).addClass("activeSubject");
   });
 
   // categories
@@ -266,6 +342,7 @@ $(document).ready(function() {
   // display add card form
   $("#chooseMakeCard").click(function() {
     $(".makeCard").show();
+    $(".makeCategory").hide();
   });
 
   // displays all cards with current subject and category
@@ -277,7 +354,17 @@ $(document).ready(function() {
   $("form#makeCardForm").submit(function(event) {
     event.preventDefault();
     var newCard = makeCard();
-    console.log(newCard);
+  });
+
+  // display make category form
+  $("#chooseMakeCategory").click(function() {
+    $(".makeCategory").show();
+  });
+
+  // make a new category
+  $("form#makeCategoryForm").submit(function(event) {
+    event.preventDefault();
+    createCategory();
   });
 
 });

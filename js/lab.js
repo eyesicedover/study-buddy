@@ -43,7 +43,7 @@ ShowOneCounter.prototype.getArray = function() {
       this.array.push(cardsArray[x]);
     }
   }
-  this.reLoop = this.array.length -1;
+  this.reLoop = this.array.length - 1;
   console.log(this.array, this.reLoop);
   return this.array, this.reLoop;
 }
@@ -64,18 +64,6 @@ ShowOneCounter.prototype.getPosition = function(cardMod) {
   showOne(this.counter, this.array)
   return this.counter;
 }
-//
-// function showOne(targetArray, counter) {
-//     var oneCard = targetArray[counter];
-//     console.log(oneCard.marked);
-//       if (oneCard.marked === true) {
-//         var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,' + oneCard.number + '" checked="checked"/>'
-//       } else {
-//         var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,' + oneCard.number + '"/>'
-//       }
-//       $("#singleCard").empty();
-//       $("#singleCard").append('<div class="flipper"><div class="front"><p>' + oneCard.term + '</p></div><div class="back">' + cardMarker + '<p>' + oneCard.definition + '</p></div></div>');
-//     };
 
 function showOne(counter, array) {
   console.log(counter, array);
@@ -89,8 +77,6 @@ function showOne(counter, array) {
   $(".singleCardDisplay").empty();
   $(".singleCardDisplay").append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front" id ="' + oneCard.number + '"><p id ="' + oneCard.number + '">' + oneCard.term + '</p></div><div class="back" id ="' + oneCard.number + '">' + cardMarker + '<p id ="' + oneCard.number + '">' + oneCard.definition + '</p></div></div></div>');
 };
-
-
 
 function showAll(selector) {
   cardsArray.forEach(function(card) {
@@ -143,18 +129,6 @@ $(document).ready(function() {
   cardsArray.push(newCard);
 
 
-  // $("#lessOne").click(function(event) {
-  //   event.preventDefault();
-  //   var cardMod = -1;
-  //   newCounter.getPosition(cardMod);
-  // })
-  //
-  // $("#plusOne").click(function(event) {
-  //   event.preventDefault();
-  //   var cardMod = +1;
-  //   newCounter.getPosition(cardMod);
-
-  // })
   $(":checkbox").click(function() {
     var getId = $(this).attr('id');
     var checkValidation = document.getElementById(getId).checked;
