@@ -252,3 +252,9 @@ ol li {
   border-style: solid;
   border-color: #2C98F0;
 }
+
+input[type=checkbox]  {
+  zoom: 2;
+  float: left;
+  margin-left: 5px;
+}
