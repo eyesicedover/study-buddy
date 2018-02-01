@@ -115,16 +115,33 @@ function displaySearchResults(searchTerm) {
 }
 
 function createCategory(subject, category) {
-  $("." + subject + " ul").append("<li id='" + category + "'>" + category + "</li>");
-  var newCategory = new Category(category);
-  for (var i = 0; i < subjectArray.length; i++) {
-    if (subjectArray[i].name === subject) {
-      subjectArray[i].categories.push(newCategory);
+  if (redundancyCheck(subject, category) === false){
+    $("." + subject + " ul").append("<li id='" + category + "'>" + category + "</li>");
+    var newCategory = new Category(category);
+    for (var i = 0; i < subjectArray.length; i++) {
+      if (subjectArray[i].name === subject) {
+        subjectArray[i].categories.push(newCategory);
+      }
+    }
+  } else {
+    alert("Category already exists");
+  }
+}
+
+function redundancyCheck(subject, category) {
+  var existing = false;
+  for (var index = 0; index < subjectArray.length; index++) {
+    // debugger;
+    var forStop = subjectArray[index].categories.length;
+    for (var j = 0; j < forStop; j++) {
+      if ((subject === subjectArray[index].name) && (category === subjectArray[index].categories[j].name)) {
+        existing = true;
+        return existing;
+        console.log("true", existing);
+      }
     }
   }
-  console.log(newCategory);
-  console.log(subjectArray);
-  // subjectObject.category = category
+  return existing;
 }
 
 function showAll(cardsArray) {
