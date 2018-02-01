@@ -121,19 +121,14 @@ ul :hover {
 }
 
 
-#cardDisplay{
+.displayCard {
   display: flex;
   flex-flow: column;
   flex-wrap: wrap;
   align-content: space-between;
-  width: 95em;
-  height: 80em;
   background: white;
   font-family: 'Lato', sans-serif;
-  opacity: .9;
-  background-color: #B7B599;
-  margin-left: -100px;
-  margin-bottom: 200px;
+  opacity: .8;
 }
 
 /*
@@ -178,9 +173,9 @@ ol li {
 
 .flip-container {
   perspective: 1000px;
-  margin-left: 50%;
-  margin-right: 50%;
+  margin: 0 auto;
   margin: 10px;
+  display: inline-block;
 }
 
 #singleCard {
