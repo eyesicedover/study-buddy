@@ -107,7 +107,6 @@ ol li {
   list-style-position: inside;
 }
 
-
 #makeOrViewCard, .makeCard, .displaySingleCard, .displayCard, .mathematics, .languages, .computerScience, #categoryHeader, .editCard, #chooseMakeCategory, .makeCategory {
  display: none;
 }
