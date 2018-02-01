@@ -40,7 +40,7 @@ function makeCard() {
     $(".makeCard").hide();
     $("form#makeCardForm").trigger("reset");
     $(".displayCard").empty();
-    $(".displayCard").css('display', 'flex');
+    $(".displayCard").show();
     var filteredArray = filterForCurrentSelections();
     showAll(filteredArray);
     return newCard;
@@ -91,6 +91,7 @@ function filterForCurrentSelections() {
 function displayCurrentSelections() {
   $(".displayCard").empty();
   $(".displayCard").hide();
+  $(".makeCard").hide();
   var filteredArray = filterForCurrentSelections();
   showAll(filteredArray);
   $(".displayCard").show();
@@ -115,7 +116,6 @@ function displaySearchResults(searchTerm) {
 
 function createCategory(subject, category) {
   $("." + subject + " ul").append("<li id='" + category + "'>" + category + "</li>");
-  console.log(category)
   var newCategory = new Category(category);
   for (var i = 0; i < subjectArray.length; i++) {
     if (subjectArray[i].name === subject) {
