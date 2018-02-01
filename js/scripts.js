@@ -53,6 +53,7 @@ function selectSubject(subject) {
   $(".displayCard").empty();
   $(".displayCard").hide();
   $(".makeCard").hide();
+  $(".makeCategory").hide();
   $("li").removeClass("active");
   $("#chooseViewCards").hide();
   $("#makeOrViewCard").hide();
@@ -68,6 +69,7 @@ function selectCategory(category) {
   $(".displayCard").empty();
   $(".displayCard").hide();
   $(".subject").hide();
+  $(".makeCategory").hide();
   $("." + subject).show();
   $("." + category + "Deck").show();
   $("li").removeClass("active");
@@ -93,6 +95,7 @@ function displayCurrentSelections() {
   $(".displayCard").empty();
   $(".displayCard").hide();
   $(".makeCard").hide();
+  $(".makeCategory").hide();
   var filteredArray = filterForCurrentSelections();
   showAll(filteredArray);
   $(".displayCard").show();
@@ -101,7 +104,7 @@ function displayCurrentSelections() {
 function search(searchTerm) {
   var searchArray = [];
   for (var i = 0; i < cardsArray.length; i++) {
-    if ((cardsArray[i].term.includes(searchTerm)) || (cardsArray[i].definition.includes(searchTerm))) {
+    if ((cardsArray[i].term.toLowerCase().includes(searchTerm.toLowerCase())) || (cardsArray[i].definition.toLowerCase().includes(searchTerm.toLowerCase()))) {
       searchArray.push(cardsArray[i]);
     }
   }
@@ -115,24 +118,28 @@ function displaySearchResults(searchTerm) {
   $(".displayCard").show();
 }
 
-function createCategory(subject, category) {
+function createCategory() {
+  var category = $("input#newCategory").val();
+  var subject = currentSelections.getSubject();
   if (redundancyCheck(subject, category) === false){
     $("." + subject + " ul").append("<li id='" + category + "'>" + category + "</li>");
     var newCategory = new Category(category);
     for (var i = 0; i < subjectArray.length; i++) {
       if (subjectArray[i].name === subject) {
         subjectArray[i].categories.push(newCategory);
+        $(".makeCategory").hide();
+        $("form#makeCategoryForm").trigger("reset");
       }
     }
   } else {
     alert("Category already exists");
+    $("form#makeCategoryForm").trigger("reset");
   }
 }
 
 function redundancyCheck(subject, category) {
   var existing = false;
   for (var index = 0; index < subjectArray.length; index++) {
-    // debugger;
     var forStop = subjectArray[index].categories.length;
     for (var j = 0; j < forStop; j++) {
       if ((subject.toLowerCase() === subjectArray[index].name.toLowerCase()) && (category.toLowerCase() === subjectArray[index].categories[j].name.toLowerCase())) {
@@ -179,50 +186,35 @@ Subject.prototype.addCategory = function(category) {
   return Subject;
 }
 
-// Card.prototype.editCard =
-
-
-$(document).ready(function() {
-
-  // cards
+function makeCards() {
   var newCard = new Card("computerScience", "JavaScript", "forLoop", "for (i = 0; i < array.length; i++) {console.log(i)}");
   cardsArray.push(newCard);
-
   newCard = new Card("computerScience", "JavaScript", "parameter", "a variable that is assigned to an argument");
   cardsArray.push(newCard);
-
   newCard = new Card("computerScience", "JavaScript", "argument", "what is passed into a function or method");
   cardsArray.push(newCard);
-
   newCard = new Card("computerScience", "JavaScript", "constructor", "A blueprint for creating many of the same type objects. Constructors add properties.");
   cardsArray.push(newCard);
-
   newCard = new Card("computerScience", "JavaScript", "instance", "Objects created with a constructor are instances of the type defined by the constructor. A constructor can be used to create many instances of the same type.");
   cardsArray.push(newCard);
-
   newCard = new Card("computerScience", "JavaScript", "prototype", "Prototypes store methods to be shared by all objects of the same type.");
   cardsArray.push(newCard);
-
   newCard = new Card("languages", "Spanish", "hello", "hola");
   cardsArray.push(newCard);
-
   newCard = new Card("languages", "Spanish", "goodbye", "adios");
   cardsArray.push(newCard);
-
   newCard = new Card("languages", "Spanish", "Where is the library?", "Donde esta la biblioteca?");
   cardsArray.push(newCard);
-
   newCard = new Card("languages", "French", "Where is the library?", "Où est la bibliothèque?");
   cardsArray.push(newCard);
-
   newCard = new Card("languages", "Russian", "Where is the library?", "где библиотека?");
   cardsArray.push(newCard);
-
   newCard = new Card("languages", "Indonesian", "Where is the library?", "Dimana perpustakaannya?");
   cardsArray.push(newCard);
+}
 
-  // subjects and categories
-  var newSubject = new Subject("computerscience");
+function makeSubjectsAndCategories() {
+  var newSubject = new Subject("computerScience");
   var newCategory = new Category("Ruby");
   newSubject.categories.push(newCategory);
   newCategory = new Category("JavaScript");
@@ -244,7 +236,7 @@ $(document).ready(function() {
   newSubject.categories.push(newCategory);
   subjectArray.push(newSubject);
 
-  newSubject = new Subject("Mathematics");
+  newSubject = new Subject("mathematics");
   newCategory = new Category("Calculus");
   newSubject.categories.push(newCategory);
   newCategory = new Category("Algebra");
@@ -254,12 +246,15 @@ $(document).ready(function() {
   newCategory = new Category("Proofs");
   newSubject.categories.push(newCategory);
   subjectArray.push(newSubject);
+}
 
+$(document).ready(function() {
 
-  // create new category
-  $("").submit(function(event) {
-    var newCategory = $("input#").val();
-  });
+  // cards
+  makeCards();
+
+  // subjects and categories
+  makeSubjectsAndCategories();
 
   // search button
   $("#typeInput").submit(function(event) {
@@ -284,6 +279,7 @@ $(document).ready(function() {
   // display add card form
   $("#chooseMakeCard").click(function() {
     $(".makeCard").show();
+    $(".makeCategory").hide();
   });
 
   // displays all cards with current subject and category
@@ -295,7 +291,6 @@ $(document).ready(function() {
   $("form#makeCardForm").submit(function(event) {
     event.preventDefault();
     var newCard = makeCard();
-    console.log(newCard);
   });
 
   // display make category form
@@ -306,10 +301,7 @@ $(document).ready(function() {
   // make a new category
   $("form#makeCategoryForm").submit(function(event) {
     event.preventDefault();
-    var category = $("input#newCategory").val();
-    var subject = currentSelections.getSubject();
-    $(".makeCategory").hide();
-    createCategory(subject, category);
+    createCategory();
   });
 
 });
