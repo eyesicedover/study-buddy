@@ -166,42 +166,42 @@ Subject.prototype.addCategory = function(category) {
 
 $(document).ready(function() {
 
-  // cards
-  var newCard = new Card("computerScience", "JavaScript", "forLoop", "for (i = 0; i < array.length; i++) {console.log(i)}");
-  cardsArray.push(newCard);
-
-  newCard = new Card("computerScience", "JavaScript", "parameter", "a variable that is assigned to an argument");
-  cardsArray.push(newCard);
-
-  newCard = new Card("computerScience", "JavaScript", "argument", "what is passed into a function or method");
-  cardsArray.push(newCard);
-
-  newCard = new Card("computerScience", "JavaScript", "constructor", "A blueprint for creating many of the same type objects. Constructors add properties.");
-  cardsArray.push(newCard);
-
-  newCard = new Card("computerScience", "JavaScript", "instance", "Objects created with a constructor are instances of the type defined by the constructor. A constructor can be used to create many instances of the same type.");
-  cardsArray.push(newCard);
-
-  newCard = new Card("computerScience", "JavaScript", "prototype", "Prototypes store methods to be shared by all objects of the same type.");
-  cardsArray.push(newCard);
-
-  newCard = new Card("languages", "Spanish", "hello", "hola");
-  cardsArray.push(newCard);
-
-  newCard = new Card("languages", "Spanish", "goodbye", "adios");
-  cardsArray.push(newCard);
-
-  newCard = new Card("languages", "Spanish", "Where is the library?", "Donde esta la biblioteca?");
-  cardsArray.push(newCard);
-
-  newCard = new Card("languages", "French", "Where is the library?", "Où est la bibliothèque?");
-  cardsArray.push(newCard);
-
-  newCard = new Card("languages", "Russian", "Where is the library?", "где библиотека?");
-  cardsArray.push(newCard);
-
-  newCard = new Card("languages", "Indonesian", "Where is the library?", "Dimana perpustakaannya?");
-  cardsArray.push(newCard);
+  // // cards
+  // var newCard = new Card("computerScience", "JavaScript", "forLoop", "for (i = 0; i < array.length; i++) {console.log(i)}");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("computerScience", "JavaScript", "parameter", "a variable that is assigned to an argument");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("computerScience", "JavaScript", "argument", "what is passed into a function or method");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("computerScience", "JavaScript", "constructor", "A blueprint for creating many of the same type objects. Constructors add properties.");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("computerScience", "JavaScript", "instance", "Objects created with a constructor are instances of the type defined by the constructor. A constructor can be used to create many instances of the same type.");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("computerScience", "JavaScript", "prototype", "Prototypes store methods to be shared by all objects of the same type.");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("languages", "Spanish", "hello", "hola");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("languages", "Spanish", "goodbye", "adios");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("languages", "Spanish", "Where is the library?", "Donde esta la biblioteca?");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("languages", "French", "Where is the library?", "Où est la bibliothèque?");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("languages", "Russian", "Where is the library?", "где библиотека?");
+  // cardsArray.push(newCard);
+  //
+  // newCard = new Card("languages", "Indonesian", "Where is the library?", "Dimana perpustakaannya?");
+  // cardsArray.push(newCard);
 
   // subjects ad categories
   var newSubject = new Subject("computerscience");
