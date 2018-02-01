@@ -108,7 +108,7 @@ ol li {
 }
 
 #makeOrViewCard, .makeCard, .displaySingleCard, .displayCard, .mathematics, .languages, .computerScience, #categoryHeader {
-  display: none;
+ display: none;
 }
 
 .about, .contact {
