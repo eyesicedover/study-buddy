@@ -77,19 +77,20 @@ function showOne(targetArray, counter) {
 
 
 
-function showAll(targetArray) {
+function showAll(selector) {
   cardsArray.forEach(function(card) {
-    if (card.category !== selector){
-      return;
-    if (card.marked === true) {
-      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,'+card.number+'" checked="checked"/>'
-    } else {
-      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,'+card.number+'"/>'
-    }
-    $("#cardDisplay").append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front" id ="' + card.number + '"><p id ="' + card.number + '">' + card.term + '</p></div><div class="back" id ="' + card.number + '">' + cardMarker + '<p id ="' + card.number + '">' + card.definition + '</p></div></div></div>');
-  });
-};
-
+    console.log(selector);
+      if (card.category !== selector) {
+        return;
+      } else if (card.marked === true) {
+          var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,' + card.number + '" checked="checked"/>'
+        } else {
+          var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,' + card.number + '"/>'
+        }
+        console.log(card);
+        $(".displayCard").append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front" id ="' + card.number + '"><p id ="' + card.number + '">' + card.term + '</p></div><div class="back" id ="' + card.number + '">' + cardMarker + '<p id ="' + card.number + '">' + card.definition + '</p></div></div></div>');
+      });
+  };
 
 $(document).ready(function() {
 
