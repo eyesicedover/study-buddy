@@ -162,7 +162,7 @@ $(document).ready(function() {
     event.preventDefault();
     var selector = currentSelections.category;
     console.log(selector);
+    showAll(selector);
   })
-
 
 });
