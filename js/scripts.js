@@ -57,6 +57,7 @@ function selectSubject(subject) {
   $("#chooseViewCards").hide();
   $("#makeOrViewCard").hide();
   $(".subject").hide();
+  $("#chooseMakeCategory").show();
   $("." + subject).show();
   $(".currentSubject").text(subject);
 }
@@ -220,7 +221,7 @@ $(document).ready(function() {
   newCard = new Card("languages", "Indonesian", "Where is the library?", "Dimana perpustakaannya?");
   cardsArray.push(newCard);
 
-  // subjects ad categories
+  // subjects and categories
   var newSubject = new Subject("computerscience");
   var newCategory = new Category("Ruby");
   newSubject.categories.push(newCategory);
@@ -295,6 +296,20 @@ $(document).ready(function() {
     event.preventDefault();
     var newCard = makeCard();
     console.log(newCard);
+  });
+
+  // display make category form
+  $("#chooseMakeCategory").click(function() {
+    $(".makeCategory").show();
+  });
+
+  // make a new category
+  $("form#makeCategoryForm").submit(function(event) {
+    event.preventDefault();
+    var category = $("input#newCategory").val();
+    var subject = currentSelections.getSubject();
+    $(".makeCategory").hide();
+    createCategory(subject, category);
   });
 
 });

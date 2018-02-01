@@ -38,12 +38,13 @@
         <button type="button" name="computerScience" class="subject-btn btn btn-danger" id="computerScienceButton" value="computerScience">Computer Science</button>
         <button type="button" name="mathematics" class="subject-btn btn btn-warning" id="mathematicsButton" value="mathematics">Mathematics</button>
         <button type="button" name="language" class="subject-btn btn btn-info" id="languageButton" value="languages">Languages</button>
+
       </div>
       <br>
-      <h2 id="categoryHeader">Pick a category:</h2>
       <!-- <button type="submit" class="btn btn-primary" id="makeCardButton">Add Card</button> -->
       <div class="allCategories">
         <div class="subject computerScience">
+          <h2>Pick a category:</h2>
           <ul style="list-style: none">
             <li id="ruby">Ruby</li>
             <li id="javascript">JavaScript</li>
@@ -52,6 +53,7 @@
           </ul>
         </div>
         <div class="subject languages">
+          <h2>Pick a category:</h2>
           <ul style="list-style: none">
             <li id="spanish">Spanish</li>
             <li id="french">French</li>
@@ -60,6 +62,7 @@
           </ul>
         </div>
         <div class="subject mathematics">
+          <h2>Pick a category:</h2>
           <ul style="list-style: none">
             <li id="calculus">Calculus</li>
             <li id="algebra">Algebra</li>
@@ -67,6 +70,7 @@
             <li id="proofs">Proofs</li>
           </ul>
         </div>
+        <button type="button" class="btn btn-primary" id="chooseMakeCategory">Make a New Category</button>
       </div>
       <div id="makeOrViewCard">
         <button type="button" class="btn btn-primary" id="chooseMakeCard">Add a Card to this Category</button>
@@ -74,6 +78,16 @@
         <button type="button" class="btn btn-primary" id="chooseViewCards">View All Cards</button>
         <button type="submit" class="btn btn-primary" id="chooseViewSlider">View Cards in Slider</button>
       </div>
+    </div>
+    <div class="well makeCategory">
+      <form id="makeCategoryForm">
+        <div class="form-group">
+          <label for="newCategory">Enter new Category name:</label>
+          <input id="newCategory" class="form-control" type="text">
+          <br>
+          <button type="submit" class="btn btn-primary" id="makeNewCategory">Submit</button>
+        </div>
+      </form>
     </div>
     <div class="well makeCard">
       <h3>Make a card</h3>

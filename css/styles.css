@@ -107,7 +107,7 @@ ol li {
   list-style-position: inside;
 }
 
-#makeOrViewCard, .makeCard, .displaySingleCard, .displayCard, .mathematics, .languages, .computerScience, #categoryHeader, .editCard {
+#makeOrViewCard, .makeCard, .displaySingleCard, .displayCard, .mathematics, .languages, .computerScience, #categoryHeader, .editCard, #chooseMakeCategory, .makeCategory {
  display: none;
 }
 
@@ -194,7 +194,7 @@ ol li {
   transform: rotateY(180deg);
 }
 
-#chooseMakeCard, #chooseViewCards, #chooseViewSlider, #chooseEditCard, .displaySingleCard, .displayCard {
+#chooseMakeCard, #chooseViewCards, #chooseViewSlider, #chooseEditCard, #chooseMakeCategory, .displaySingleCard, .displayCard, .makeCategory {
   font-family: 'Lato', sans-serif;
 }
 
@@ -257,4 +257,8 @@ input[type=checkbox]  {
   zoom: 2;
   float: left;
   margin-left: 5px;
+}
+
+#makeOrViewCard {
+  margin-top: 15px;
 }
