@@ -33,7 +33,7 @@ function boxUpdate(cardsArray, cardTarget2, checkValidation) {
 function ShowOneCounter(selector) {
   this.selector = selector;
   this.array = [];
-  this.counter = 1;
+  this.counter = 0;
   this.reLoop = 0;
 }
 
@@ -92,42 +92,6 @@ function showAll(selector) {
 };
 
 $(document).ready(function() {
-
-  var newCard = new Card("Computer Science", "JavaScript", "forLoop", "for (i = 0; i < array.length; i++) {console.log(i)}", 1, true);
-  cardsArray.push(newCard);
-
-  newCard = new Card("Computer Science", "vocabulary", "parameter", "a variable that is assigned to an argument", 2, true);
-  cardsArray.push(newCard);
-  newCard = new Card("Computer Science", "vocabulary", "argument", "what is passed into a function or method", 3, false);
-  cardsArray.push(newCard);
-
-  newCard = new Card("Computer Science", "vocabulary", "constructor", "A blueprint for creating many of the same type objects. Constructors add properties.", 4, true);
-  cardsArray.push(newCard);
-
-  newCard = new Card("Computer Science", "vocabulary", "instance", "Objects created with a constructor are instances of the type defined by the constructor. A constructor can be used to create many instances of the same type.", 5, true);
-  cardsArray.push(newCard);
-
-  newCard = new Card("Computer Science", "vocabulary", "prototype", "Prototypes store methods to be shared by all objects of the same type.", 6, true);
-  cardsArray.push(newCard);
-
-  newCard = new Card("Languages", "Spanish", "hello", "hola", 7, true);
-  cardsArray.push(newCard);
-
-  newCard = new Card("Languages", "Spanish", "goodbye", "adios", 8, true);
-  cardsArray.push(newCard);
-
-  newCard = new Card("Languages", "Spanish", "Where is the library?", "Donde esta la biblioteca?", 9, false);
-  cardsArray.push(newCard);
-
-  newCard = new Card("Languages", "French", "Where is the library?", "Où est la bibliothèque?", 10, true);
-  cardsArray.push(newCard);
-
-  newCard = new Card("Languages", "Russian", "Where is the library?", "где библиотека?", 11, false);
-  cardsArray.push(newCard);
-
-  newCard = new Card("Languages", "Indonesian", "Where is the library?", "Dimana perpustakaannya?", 12, false);
-  cardsArray.push(newCard);
-
 
   $(":checkbox").click(function() {
     var getId = $(this).attr('id');
