@@ -134,7 +134,7 @@ function showAll(cardsArray) {
     } else {
       var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,'+card.number+'"/>'
     }
-    $(".displayCard").append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front" id ="' + card.number + '"><p id ="' + card.number + '">' + card.term + '</p></div><div class="back" id ="' + card.number + '">' + cardMarker + '<p id ="' + card.number + '">' + card.definition + '</p></div></div></div>');
+    $(".displayCard").append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front" id ="' + card.number + '"><p id ="' + card.number + '">' + card.term + '</p></div><div class="back" id ="' + card.number + '">' + cardMarker + '<button type="button" class="btn btn-primary editButton">Edit</button><p id ="' + card.number + '">' + card.definition + '</p></div></div></div>');
   });
 };
 
@@ -161,8 +161,11 @@ Subject.prototype.addCategory = function(category) {
   return Subject;
 }
 
-// Card.prototype.editCard =
-
+// Edit card prototype
+Card.prototype.editCard = function(card) {
+  document.getElementById("editTerm").value = this.term;
+  document.getElementById("editDefinition").value = this.definition;
+}
 
 $(document).ready(function() {
 
@@ -278,6 +281,16 @@ $(document).ready(function() {
     event.preventDefault();
     var newCard = makeCard();
     console.log(newCard);
+  });
+
+  //edit card
+  $("#chooseEditCard").click(function() {
+    $(".editCard").show();
+  });
+
+  $(".displayCard").on('click', 'button', function() {
+    $(".editCard").show();
+    cardsArray[2].editCard();
   });
 
 });
