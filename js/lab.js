@@ -79,7 +79,8 @@ function showOne(targetArray, counter) {
 
 function showAll(targetArray) {
   cardsArray.forEach(function(card) {
-    // console.log(card);
+    if (card.category !== selector){
+      return;
     if (card.marked === true) {
       var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,'+card.number+'" checked="checked"/>'
     } else {
