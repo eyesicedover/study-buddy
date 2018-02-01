@@ -130,9 +130,9 @@ function createCategory(subject, category) {
 function showAll(cardsArray) {
   cardsArray.forEach(function(card) {
     if (card.marked === true) {
-      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="checkMark" checked="checked"/>'
+      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,'+card.number+'" checked="checked"/>'
     } else {
-      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="checkMark"/>'
+      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,'+card.number+'"/>'
     }
     $(".displayCard").append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front" id ="' + card.number + '"><p id ="' + card.number + '">' + card.term + '</p></div><div class="back" id ="' + card.number + '">' + cardMarker + '<p id ="' + card.number + '">' + card.definition + '</p></div></div></div>');
   });
