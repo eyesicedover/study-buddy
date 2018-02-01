@@ -52,11 +52,13 @@ function selectSubject(subject) {
   currentSelections.setCategory("");
   $(".displayCard").empty();
   $(".displayCard").hide();
+  $(".makeCard").hide();
   $("li").removeClass("active");
   $("#chooseViewCards").hide();
   $("#makeOrViewCard").hide();
   $(".subject").hide();
   $("." + subject).show();
+  $(".currentSubject").text(subject);
 }
 
 function selectCategory(category) {
@@ -71,6 +73,7 @@ function selectCategory(category) {
   $("#makeCardForm").show();
   $("#chooseViewCards").show();
   $("#makeOrViewCard").show();
+  $(".currentCategory").text(category);
 }
 
 function filterForCurrentSelections() {
@@ -254,10 +257,8 @@ $(document).ready(function() {
   });
 
   // categories
-  $("li").click(function() {
-    // var category = $(this).text().toLowerCase().replace(" ", "");
-    var category = $(this).html();
-    var otherCategory = $(this.this$0).html();
+  $('.allCategories').on('click', 'li', function() {
+    var category = $(this).text();
     selectCategory(category);
     $(this).addClass("active");
   });
@@ -278,5 +279,4 @@ $(document).ready(function() {
     var newCard = makeCard();
     console.log(newCard);
   });
-
 });
