@@ -240,6 +240,10 @@ function makeCards() {
   newCard = new Card("languages", "Indonesian", "Where is the library?", "Dimana perpustakaannya?");
   cardsArray.push(newCard);
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> f093bfcd356d89f5d6df335d759accd3223d0659
 
 function makeSubjectsAndCategories() {
   var newSubject = new Subject("computerScience");
