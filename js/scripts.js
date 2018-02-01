@@ -59,6 +59,7 @@ function selectSubject(subject) {
   $("#makeOrViewCard").hide();
   $(".subject").hide();
   $("#chooseMakeCategory").show();
+  $(".subject-btn").removeClass("activeSubject");
   $("." + subject).show();
   $(".currentSubject").text(subject);
 }
@@ -97,7 +98,11 @@ function displayCurrentSelections() {
   $(".makeCard").hide();
   $(".makeCategory").hide();
   var filteredArray = filterForCurrentSelections();
-  showAll(filteredArray);
+  if (filteredArray.length === 0) {
+    $(".displayCard").html("<h3>No cards here!</h3>")
+  } else {
+    showAll(filteredArray);
+  }
   $(".displayCard").show();
 }
 
@@ -114,14 +119,18 @@ function search(searchTerm) {
 function displaySearchResults(searchTerm) {
   $(".displayCard").empty();
   var filteredArray = search(searchTerm);
-  showAll(filteredArray);
+  if (filteredArray.length === 0) {
+    $(".displayCard").html("<h3>No cards match!</h3>")
+  } else {
+    showAll(filteredArray);
+  }
   $(".displayCard").show();
 }
 
 function createCategory() {
   var category = $("input#newCategory").val();
   var subject = currentSelections.getSubject();
-  if (redundancyCheck(subject, category) === false){
+  if (redundancyCheck(subject, category) === false) {
     $("." + subject + " ul").append("<li id='" + category + "'>" + category + "</li>");
     var newCategory = new Category(category);
     for (var i = 0; i < subjectArray.length; i++) {
@@ -145,7 +154,6 @@ function redundancyCheck(subject, category) {
       if ((subject.toLowerCase() === subjectArray[index].name.toLowerCase()) && (category.toLowerCase() === subjectArray[index].categories[j].name.toLowerCase())) {
         existing = true;
         return existing;
-        console.log("true", existing);
       }
     }
   }
@@ -155,9 +163,9 @@ function redundancyCheck(subject, category) {
 function showAll(cardsArray) {
   cardsArray.forEach(function(card) {
     if (card.marked === true) {
-      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,'+card.number+'" checked="checked"/>'
+      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,' + card.number + '" checked="checked"/>'
     } else {
-      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,'+card.number+'"/>'
+      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,' + card.number + '"/>'
     }
     $(".displayCard").append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front" id ="' + card.number + '"><p id ="' + card.number + '">' + card.term + '</p></div><div class="back" id ="' + card.number + '">' + cardMarker + '<button type="button" class="btn btn-primary editButton">Edit</button><p id ="' + card.number + '">' + card.definition + '</p></div></div></div>');
   });
@@ -209,6 +217,18 @@ function makeCards() {
   cardsArray.push(newCard);
   newCard = new Card("computerScience", "JavaScript", "prototype", "Prototypes store methods to be shared by all objects of the same type.");
   cardsArray.push(newCard);
+  newCard = new Card("computerScience", "Ruby", "while statement", "while conditional [do] code end");
+  cardsArray.push(newCard);
+  newCard = new Card("computerScience", "C Sharp", "using keyword", "The using keyword is used for including the namespaces in the program. A program can include multiple using statements.");
+  cardsArray.push(newCard);
+  newCard = new Card("computerScience", "Dot Net", "CLR", "common language runtime - a virtual execution system");
+  cardsArray.push(newCard);
+  newCard = new Card("Mathematics", "Calculus", "Absolute Convergence", "Describes a series that converges when all terms are replaced by their absolute values. To see if a series converges absolutely, replace any subtraction in the series with addition. If the new series converges, then the original series converges absolutely.");
+  cardsArray.push(newCard);
+  newCard = new Card("Mathematics", "Algebra", "Compound Fraction", "A fraction which has, as part of its numerator and/or denominator, at least one other fraction.");
+  cardsArray.push(newCard);
+  newCard = new Card("Mathematics", "Geometry", "Polygon", "A closed plane figure for which all sides are line segments. The name of a polygon describes the number of sides. A polygon which has all sides mutually congruent and all angles mutually congruent is called a regular polygon.");
+  cardsArray.push(newCard);
   newCard = new Card("languages", "Spanish", "hello", "hola");
   cardsArray.push(newCard);
   newCard = new Card("languages", "Spanish", "goodbye", "adios");
@@ -253,8 +273,6 @@ function makeSubjectsAndCategories() {
   newSubject.categories.push(newCategory);
   newCategory = new Category("Geometry");
   newSubject.categories.push(newCategory);
-  newCategory = new Category("Proofs");
-  newSubject.categories.push(newCategory);
   subjectArray.push(newSubject);
 }
 
@@ -277,6 +295,7 @@ $(document).ready(function() {
   $(".subject-btn").click(function() {
     var subject = $(this).val();
     selectSubject(subject);
+    $(this).addClass("activeSubject");
   });
 
   // categories
