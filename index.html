@@ -41,29 +41,32 @@
       </div>
       <br>
       <h2 id="categoryHeader">Pick a category:</h2>
-      <div class="subject computerScience">
-        <ul style="list-style: none">
-          <li id="ruby">Ruby</li>
-          <li id="javascript">JavaScript</li>
-          <li id="cSharp">C Sharp</li>
-          <li id="dotNet">Dot Net</li>
-        </ul>
-      </div>
-      <div class="subject languages">
-        <ul style="list-style: none">
-          <li id="spanish">Spanish</li>
-          <li id="french">French</li>
-          <li id="russian">Russian</li>
-          <li id="indonesian">Indonesian</li>
-        </ul>
-      </div>
-      <div class="subject mathematics">
-        <ul style="list-style: none">
-          <li id="calculus">Calculus</li>
-          <li id="algebra">Algebra</li>
-          <li id="geometry">Geometry</li>
-          <li id="proofs">Proofs</li>
-        </ul>
+      <div class="allCategories">
+        <div class="subject computerScience">
+          <ul style="list-style: none">
+            <li id="ruby">Ruby</li>
+            <li id="javascript">JavaScript</li>
+            <li id="cSharp">C Sharp</li>
+            <li id="dotNet">Dot Net</li>
+          </ul>
+        </div>
+        <div class="subject languages">
+          <ul style="list-style: none">
+            <li id="spanish">Spanish</li>
+            <li id="french">French</li>
+            <li id="russian">Russian</li>
+            <li id="indonesian">Indonesian</li>
+            <li id="chinese">Chinese</li>
+          </ul>
+        </div>
+        <div class="subject mathematics">
+          <ul style="list-style: none">
+            <li id="calculus">Calculus</li>
+            <li id="algebra">Algebra</li>
+            <li id="geometry">Geometry</li>
+            <li id="proofs">Proofs</li>
+          </ul>
+        </div>
       </div>
       <div id="makeOrViewCard">
         <button type="button" class="btn btn-primary" id="chooseMakeCard">Add a Card to this Category</button>
@@ -73,7 +76,7 @@
     <div class="well makeCard">
       <h3>Make a card</h3>
       <form id="makeCardForm">
-        <p>Current Subject: <span class="currentSubject"></span>, Current Category: <span class="currentCategory"></span></p>
+        <p>Subject: <span class="currentSubject"></span>,  Category: <span class="currentCategory"></span></p>
         <div class="form-group">
           <label for="term">Enter the term:</label>
           <input id="term" class="form-control" type="text">
