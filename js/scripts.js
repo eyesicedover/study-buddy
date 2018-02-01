@@ -200,11 +200,8 @@ Card.prototype.editCard = function(card) {
   document.getElementById("editDefinition").value = this.definition;
 }
 
-$(document).ready(function() {
-
-  // cards
+// cards
 function makeCards() {
-
   var newCard = new Card("computerScience", "JavaScript", "forLoop", "for (i = 0; i < array.length; i++) {console.log(i)}");
   cardsArray.push(newCard);
   newCard = new Card("computerScience", "JavaScript", "parameter", "a variable that is assigned to an argument");
@@ -277,7 +274,6 @@ function makeSubjectsAndCategories() {
 }
 
 $(document).ready(function() {
-
   // cards
   makeCards();
 
@@ -343,5 +339,4 @@ $(document).ready(function() {
     cardsArray[2].editCard();
   });
 
-});
 });
