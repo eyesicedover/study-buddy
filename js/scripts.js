@@ -241,7 +241,6 @@ function makeCards() {
   cardsArray.push(newCard);
 }
 
-
 function makeSubjectsAndCategories() {
   var newSubject = new Subject("computerScience");
   var newCategory = new Category("Ruby");
