@@ -243,7 +243,7 @@ $(document).ready(function() {
     var newCategory = $("input#").val();
   });
 
-  //search button
+  // search button
   $("#typeInput").submit(function(event) {
     event.preventDefault();
     var searchTerm = $("input#userTermSearch").val();
