@@ -194,6 +194,7 @@ Subject.prototype.addCategory = function(category) {
   return Subject;
 }
 
+
 // Edit card prototype
 Card.prototype.editCard = function(card) {
   document.getElementById("editTerm").value = this.term;

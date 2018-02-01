@@ -20,77 +20,76 @@ function Card(subject, category, term, definition, number, marked) {
   this.marked = marked;
 }
 
-function boxUpdate(targetArray, cardTarget2, checkValidation) {
+function boxUpdate(cardsArray, cardTarget2, checkValidation) {
   cardsArray.forEach(function(card) {
     if (card.number === cardTarget2) {
-        card.marked = checkValidation;
-        console.log(card);
-        return card;
-        }
+      card.marked = checkValidation;
+      console.log(card);
+      return card;
+    }
   })
-
 };
-function ShowOneCounter(targetArray) {
-  this.targetArray = targetArray;
-  this.reLoop = targetArray.length - 1;
+
+function ShowOneCounter(selector) {
+  this.selector = selector;
+  this.array = [];
   this.counter = 1;
+  this.reLoop = 0;
+}
+
+ShowOneCounter.prototype.getArray = function() {
+  for (var x = 0; x < cardsArray.length; x++) {
+    if (cardsArray[x].category === this.selector) {
+      this.array.push(cardsArray[x]);
+    }
+  }
+  this.reLoop = this.array.length - 1;
+  console.log(this.array, this.reLoop);
+  return this.array, this.reLoop;
 }
 
 ShowOneCounter.prototype.getPosition = function(cardMod) {
+  console.log(this.reLoop);
   var cardPos = this.counter + cardMod;
   if (cardPos > this.reLoop) {
     cardPos = 0;
     this.counter = cardPos;
-    } else if (cardPos < 0) {
+  } else if (cardPos < 0) {
     cardPos = this.reLoop;
     this.counter = cardPos;
   } else {
     this.counter = cardPos;
   }
-  showOne(this.targetArray, this.counter)
+  console.log(this.array);
+  showOne(this.counter, this.array)
   return this.counter;
 }
-//
-// function showOne(targetArray, counter) {
-//     var oneCard = targetArray[counter];
-//     console.log(oneCard.marked);
-//       if (oneCard.marked === true) {
-//         var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,' + oneCard.number + '" checked="checked"/>'
-//       } else {
-//         var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,' + oneCard.number + '"/>'
-//       }
-//       $("#singleCard").empty();
-//       $("#singleCard").append('<div class="flipper"><div class="front"><p>' + oneCard.term + '</p></div><div class="back">' + cardMarker + '<p>' + oneCard.definition + '</p></div></div>');
-//     };
 
-function showOne(targetArray, counter) {
-    var oneCard = targetArray[counter];
-    console.log(oneCard);
-      if (oneCard.marked === true) {
-        var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,' + oneCard.number + '" checked="checked"/>'
-      } else {
-        var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,' + oneCard.number + '"/>'
-      }
-      $("#singleCard").empty();
-      $("#singleCard").append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front" id ="' + oneCard.number + '"><p id ="' + oneCard.number + '">' + oneCard.term + '</p></div><div class="back" id ="' + oneCard.number + '">' + cardMarker + '<p id ="' + oneCard.number + '">' + oneCard.definition + '</p></div></div></div>');
-    };
-
-
+function showOne(counter, array) {
+  console.log(counter, array);
+  var oneCard = array[counter];
+  console.log(counter, array, oneCard);
+  if (oneCard.marked === true) {
+    var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,' + oneCard.number + '" checked="checked"/>'
+  } else {
+    var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,' + oneCard.number + '"/>'
+  }
+  $(".singleCardDisplay").empty();
+  $(".singleCardDisplay").append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front" id ="' + oneCard.number + '"><p id ="' + oneCard.number + '">' + oneCard.term + '</p></div><div class="back" id ="' + oneCard.number + '">' + cardMarker + '<p id ="' + oneCard.number + '">' + oneCard.definition + '</p></div></div></div>');
+};
 
 function showAll(selector) {
   cardsArray.forEach(function(card) {
-    console.log(selector);
-      if (card.category !== selector) {
-        return;
-      } else if (card.marked === true) {
-          var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,' + card.number + '" checked="checked"/>'
-        } else {
-          var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,' + card.number + '"/>'
-        }
-        console.log(card);
-        $(".displayCard").append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front" id ="' + card.number + '"><p id ="' + card.number + '">' + card.term + '</p></div><div class="back" id ="' + card.number + '">' + cardMarker + '<p id ="' + card.number + '">' + card.definition + '</p></div></div></div>');
-      });
-  };
+    if (card.category !== selector) {
+      return;
+    } else if (card.marked === true) {
+      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,' + card.number + '" checked="checked"/>'
+    } else {
+      var cardMarker = '<input type="checkbox" name="marked" value="marked" id="check,' + card.number + '"/>'
+    }
+    $(".displayCard").append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front" id ="' + card.number + '"><p id ="' + card.number + '">' + card.term + '</p></div><div class="back" id ="' + card.number + '">' + cardMarker + '<p id ="' + card.number + '">' + card.definition + '</p></div></div></div>');
+  });
+};
 
 $(document).ready(function() {
 
@@ -129,41 +128,42 @@ $(document).ready(function() {
   newCard = new Card("Languages", "Indonesian", "Where is the library?", "Dimana perpustakaannya?", 12, false);
   cardsArray.push(newCard);
 
-  var newCounter = new ShowOneCounter(cardsArray);
 
-  $(".eachCard").click(function() {
-    var cardTarget = $(this).attr('id');
-    $("#" + cardTarget + "Display").fadeToggle(300, "linear");
-    $("#" + cardTarget + "Show").fadeToggle(300, "linear");
-  });
-
-  $("#lessOne").click(function(event){
-    event.preventDefault();
-    var cardMod = -1;
-    newCounter.getPosition(cardMod);
-  })
-
-  $("#plusOne").click(function(event){
-    event.preventDefault();
-    var cardMod = +1;
-    newCounter.getPosition(cardMod);
-
-  })
   $(":checkbox").click(function() {
     var getId = $(this).attr('id');
     var checkValidation = document.getElementById(getId).checked;
     var splitId = $(this).attr('id').split(",");
     var cardTarget2 = parseInt(splitId[1]);
-    console.log(cardTarget2, checkValidation, getId);
     boxUpdate(cardsArray, cardTarget2, checkValidation);
   })
 
-
-  $("#chooseViewCards").click(function(event){
+  $("#chooseViewCards").click(function(event) {
     event.preventDefault();
     var selector = currentSelections.category;
-    console.log(selector);
     showAll(selector);
   })
+
+  $("#chooseViewSlider").click(function(event) {
+    event.preventDefault();
+    var selector = currentSelections.category;
+    var newCounter = new ShowOneCounter(selector);
+    newCounter.getArray();
+    console.log(newCounter.counter, newCounter.array);
+    showOne(newCounter.counter, newCounter.array)
+
+    $("#lessOne").click(function(event) {
+      event.preventDefault();
+      var cardMod = -1;
+      newCounter.getPosition(cardMod, newCounter.array);
+    })
+
+    $("#plusOne").click(function(event) {
+      event.preventDefault();
+      var cardMod = +1;
+      newCounter.getPosition(cardMod, newCounter.array);
+
+    })
+  });
+
 
 });
