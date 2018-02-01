@@ -279,4 +279,5 @@ $(document).ready(function() {
     var newCard = makeCard();
     console.log(newCard);
   });
+
 });
