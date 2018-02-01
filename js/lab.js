@@ -128,7 +128,6 @@ $(document).ready(function() {
   cardsArray.push(newCard);
 
   var newCounter = new ShowOneCounter(cardsArray);
-  // showAll(cardsArray);
 
   $(".eachCard").click(function() {
     var cardTarget = $(this).attr('id');
@@ -156,5 +155,13 @@ $(document).ready(function() {
     console.log(cardTarget2, checkValidation, getId);
     boxUpdate(cardsArray, cardTarget2, checkValidation);
   })
+
+
+  $("#chooseViewCards").click(function(event){
+    event.preventDefault();
+    var selector = currentSelections.category;
+    console.log(selector);
+  })
+
 
 });
